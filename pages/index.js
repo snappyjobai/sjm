@@ -4,12 +4,12 @@ import VideoPrev from "../components/videoprev";
 import InFooter from "../components/inFooter";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
-import { useSession, signIn } from "next-auth/react";
-import UserIcon from "../components/UserIcon";
 import Navbar from "../components/Navbar";
+import GetStarted from "../components/GetStarted";
+import TechStack from "../components/TechStack";
+import Stats from "../components/Status";
 
 export default function Home() {
-  const { data: session } = useSession();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const videos = [
@@ -32,10 +32,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-primary">
       <Navbar />
-
       <HeroSection />
       <AIFeatures />
-
       {/* Stats Section with enhanced animation */}
       <motion.div
         className="bg-white/5 py-16"
@@ -58,7 +56,6 @@ export default function Home() {
           ))}
         </div>
       </motion.div>
-
       {/* Video Preview Section */}
       <motion.div
         className="relative max-w-[900px] mx-auto px-4 py-16"
@@ -93,6 +90,19 @@ export default function Home() {
             />
           ))}
         </div>
+      </motion.div>
+
+      <motion.div>
+        <TechStack />
+        <GetStarted />
+
+        <motion.div
+          className="max-w-7xl mx-auto px-4 py-16"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          <Stats />
+        </motion.div>
       </motion.div>
 
       <InFooter />

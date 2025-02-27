@@ -77,8 +77,7 @@ const SJMTestChatbot = ({ onClose, isOpen }) => {
 
   // Store API key
   useEffect(() => {
-    const envApiKey =
-      process.env.NEXT_PUBLIC_SJM_API_KEY || "sjm_fr_test_key_1234567890";
+    const envApiKey = process.env.NEXT_PUBLIC_SJM_API_KEY;
     setApiKey(envApiKey);
   }, []);
 
@@ -702,7 +701,7 @@ ${freelancer.availability ? "✅ Available Now" : "⏱️ Available in 2 weeks"}
         matchesText =
           `I've found ${matches.length} talented freelancers for your project! Here are the top matches:\n\n` +
           topMatches
-            .map((match, index) => {
+            .map((match) => {
               const freelancer = match.freelancer;
               // Calculate match percentage in a more intuitive way (normalized to 100%)
               const matchPercentage = Math.min(match.score * 50, 99).toFixed(0);

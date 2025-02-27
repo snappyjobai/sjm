@@ -1,3 +1,7 @@
+// Using CommonJS syntax
+const path = require("path");
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx"],
   webpack: (config) => {

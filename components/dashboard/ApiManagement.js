@@ -131,7 +131,7 @@ export default function ApiManagement() {
 
           {hasReachedLimit && (
             <div className="absolute bottom-full mb-2 w-max left-1/2 -translate-x-1/2 px-3 py-1 bg-black/90 text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity">
-              You've reached the limit. Upgrade or revoke existing keys.
+              You&apos;ve reached the limit. Upgrade or revoke existing keys.
               <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-black/90" />
             </div>
           )}
@@ -152,7 +152,7 @@ export default function ApiManagement() {
           <div className="space-y-4">
             <div className="p-4 bg-white/5 rounded-lg border border-white/10">
               <p className="text-white mb-2">
-                You've reached the limit of {planLimit} API{" "}
+                You&apos;ve reached the limit of {planLimit} API{" "}
                 {planLimit === 1 ? "key" : "keys"} for your{" "}
                 {PLAN_LIMITS[userPlan].name} plan.
               </p>

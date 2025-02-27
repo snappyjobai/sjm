@@ -11,6 +11,7 @@ import {
 } from "react-icons/fi";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import axios from "axios";
 import SectionHeading from "../components/SectionHeading";
 import InFooter from "../components/inFooter";
@@ -169,7 +170,7 @@ const APISandbox = () => {
       });
       setParameters(defaultParams);
     }
-  }, [selectedEndpoint]);
+  }, [currentEndpoint, selectedEndpoint]);
 
   // Handle form input changes
   const handleInputChange = (e) => {
@@ -683,7 +684,7 @@ const DemoSection = () => {
           <div className="h-48 bg-gray-700 relative overflow-hidden">
             <div className="w-full h-full bg-gray-700 flex items-center justify-center">
               {/* Using Next.js Image here would be ideal, but keeping it simple for now */}
-              <img
+              <Image
                 src={demo.image}
                 alt={demo.title}
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"

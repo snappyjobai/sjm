@@ -7,7 +7,7 @@ export default function DocsIndex() {
   useEffect(() => {
     // Simple redirect to introduction
     router.push("/docs/introduction");
-  }, []);
+  }, [router]);
 
   return null;
 }

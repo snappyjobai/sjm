@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FiCode, FiZap, FiServer } from "react-icons/fi";
+import { FiCode, FiZap } from "react-icons/fi";
 import CodeHighlight from "./CodeHighlight";
 
 export default function FeatureShowcase({

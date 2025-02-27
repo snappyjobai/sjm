@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const TechnologyStack = () => {
+const TechStack = () => {
   const technologies = [
     {
       category: "Core Technology",
@@ -61,4 +61,4 @@ const TechnologyStack = () => {
   );
 };
 
-export default TechnologyStack;
+export default TechStack;

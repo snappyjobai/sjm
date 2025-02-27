@@ -6,7 +6,6 @@ import ChangePasswordDialog from "./ChangePasswordDialog";
 
 export default function Profile() {
   const { data: session } = useSession();
-  const [isChangingPassword, setIsChangingPassword] = useState(false);
   const [showPasswordDialog, setShowPasswordDialog] = useState(false);
 
   return (
@@ -18,7 +17,7 @@ export default function Profile() {
           <label className="text-sm text-gray-400">Name</label>
           <div className="flex items-center gap-4">
             <p className="text-white bg-white/5 px-4 py-2 rounded-lg flex-1">
-              {session?.user?.name}
+              {session?.user?.name || "Not available"}
             </p>
           </div>
         </div>
@@ -28,7 +27,9 @@ export default function Profile() {
           <div className="flex items-center gap-4">
             <div className="bg-white/5 px-4 py-2 rounded-lg flex-1 flex items-center gap-2">
               <EnvelopeIcon className="w-5 h-5 text-gray-400" />
-              <p className="text-white">{session?.user?.email}</p>
+              <p className="text-white">
+                {session?.user?.email || "Not available"}
+              </p>
             </div>
           </div>
         </div>

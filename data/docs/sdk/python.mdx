@@ -18,7 +18,7 @@ description: "Complete guide to using SJM with Python"
 
 <CodeTabs
   tabs={{
-    pip: "pip install sjm-ai",
+    pip: "pip install sjm",
     poetry: "poetry add sjm-ai",
     conda: "conda install -c sjm sjm-ai",
   }}
@@ -27,7 +27,7 @@ description: "Complete guide to using SJM with Python"
 ## Quick Setup
 
 <CodeHighlight
-  code={`from sjm.ai import MatchingEngine
+  code={`from sjm import MatchingEngine
 import os
 
 engine = MatchingEngine(
@@ -43,7 +43,7 @@ language="python"
 
 <CodeTabs
   tabs={{
-    "Basic": `from sjm.ai import Project
+    "Basic": `from sjm import Project
 
 project = Project(
 description="Need a React Native developer",
@@ -72,7 +72,7 @@ preferences={
 ### Skills Analysis
 
 <CodeHighlight
-  code={`from sjm.ai import SkillsExtractor
+  code={`from sjm import SkillsExtractor
 
 extractor = SkillsExtractor()
 
@@ -91,7 +91,7 @@ language="python"
 ### AI Interviews
 
 <CodeHighlight
-  code={`from sjm.ai import AIInterviewer
+  code={`from sjm import AIInterviewer
 
 interviewer = AIInterviewer()
 
@@ -115,7 +115,7 @@ language="python"
 ## Async Support
 
 <CodeHighlight
-  code={`from sjm.ai import AsyncMatchingEngine
+  code={`from sjm import AsyncMatchingEngine
 import asyncio
 
 async def match_candidates():
@@ -136,7 +136,7 @@ language="python"
 ## Error Handling
 
 <CodeHighlight
-  code={`from sjm.ai.exceptions import (
+  code={`from sjm.exceptions import (
     SJMAPIError,
     RateLimitError,
     ValidationError
@@ -158,7 +158,7 @@ language="python"
 <InteractiveDemo
   title="Complete Integration Example"
   description="Try a full integration with the Python SDK"
-  initialCode={`from sjm.ai import MatchingEngine, Project, SkillsExtractor
+  initialCode={`from sjm import MatchingEngine, Project, SkillsExtractor
 
 # Initialize components
 

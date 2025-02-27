@@ -18,7 +18,7 @@ description: "Automated technical interviews powered by AI"
 
 <CodeTabs
   tabs={{
-    Python: `from sjm.ai import InterviewEngine
+    Python: `from sjm import InterviewEngine
 
 engine = InterviewEngine()
 
@@ -178,11 +178,12 @@ console.log("Interview Results:", result)`}
     <div className="text-sm text-gray-400">Average duration</div>
   </FuturisticCard>
 
-  <FuturisticCard>
-    <h3 className="text-lg font-bold">Accuracy</h3>
-    <div className="text-3xl font-bold text-accent">95%</div>
-    <div className="text-sm text-gray-400">Evaluation accuracy</div>
-  </FuturisticCard>
+{" "}
+<FuturisticCard>
+  <h3 className="text-lg font-bold">Accuracy</h3>
+  <div className="text-3xl font-bold text-accent">95%</div>
+  <div className="text-sm text-gray-400">Evaluation accuracy</div>
+</FuturisticCard>
 
   <FuturisticCard>
     <h3 className="text-lg font-bold">Coverage</h3>

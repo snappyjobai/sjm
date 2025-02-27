@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -10,7 +9,6 @@ import TableOfContents from "./TableOfContents";
 export default function DocsLayout({ children }) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-  const router = useRouter();
 
   // Handle keyboard shortcuts
   useEffect(() => {

@@ -1,13 +1,9 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import FuturisticCard from "./FuturisticCard";
-import { FiSend, FiServer, FiDatabase } from "react-icons/fi";
+import { FiSend, FiServer } from "react-icons/fi";
 
-export default function ApiVisualizer({
-  endpoint,
-  method = "GET",
-  sampleRequest,
-}) {
+export default function ApiVisualizer({ endpoint, method = "GET" }) {
   const [isAnimating, setIsAnimating] = useState(false);
   const [flowSteps, setFlowSteps] = useState([]);
 

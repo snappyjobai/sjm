@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { LockClosedIcon } from "@heroicons/react/24/outline";
 import { AlertDialog } from "../ui/AlertDialog";
 import toast from "react-hot-toast";
 

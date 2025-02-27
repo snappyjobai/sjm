@@ -1,3 +1,6 @@
+// pages/api/playground.js
+import axios from "axios";
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
@@ -5,37 +8,80 @@ export default async function handler(req, res) {
 
   const { endpoint, method, params } = req.body;
 
-  // Simulate API response
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  // Get API key from environment
+  const apiKey = process.env.NEXT_PUBLIC_SJM_API_KEY;
 
-  // Example response data
-  const responses = {
-    "/api/match": {
-      matches: [
-        {
-          id: "freelancer_123",
-          name: "John Doe",
-          matchScore: 0.95,
-          skills: ["React", "Node.js"],
-          hourlyRate: 50,
-          availability: "Within 1 week",
-        },
-        {
-          id: "freelancer_124",
-          name: "Jane Smith",
-          matchScore: 0.92,
-          skills: ["React Native", "JavaScript"],
-          hourlyRate: 45,
-          availability: "Immediate",
-        },
-      ],
-      metadata: {
-        totalMatches: 2,
-        processingTime: "0.23s",
-        aiConfidence: 0.97,
+  // Base URL for SJM API
+  const baseUrl =
+    process.env.NEXT_PUBLIC_API_BASE_URL ||
+    "https://snapjobsai.com/api/v1/test";
+
+  try {
+    // Determine the full URL based on the requested endpoint
+    let apiEndpoint = "";
+
+    switch (endpoint) {
+      case "match":
+        apiEndpoint = `${baseUrl}/match`;
+        break;
+      case "verify-skill":
+        apiEndpoint = `${baseUrl}/verify-skill`;
+        break;
+      case "interview":
+        apiEndpoint = `${baseUrl}/interview`;
+        break;
+      case "health":
+        apiEndpoint = `${baseUrl}/health`;
+        break;
+      default:
+        apiEndpoint = `${baseUrl}/${endpoint}`;
+    }
+
+    // Set up the request config
+    const config = {
+      method: method || "POST",
+      url: apiEndpoint,
+      headers: {
+        "Content-Type": "application/json",
+        "X-API-Key": apiKey,
       },
-    },
-  };
+    };
 
-  res.status(200).json(responses[endpoint] || { error: "Endpoint not found" });
+    // Add request body if this is a POST/PUT request and params are provided
+    if ((method === "POST" || method === "PUT") && params) {
+      config.data = params;
+    }
+
+    // Add query params if this is a GET request and params are provided
+    if (method === "GET" && params) {
+      config.params = params;
+    }
+
+    // Make the request to the SJM API
+    const response = await axios(config);
+
+    // Return the API response
+    return res.status(response.status).json({
+      status: response.status,
+      statusText: response.statusText,
+      data: response.data,
+      headers: response.headers,
+    });
+  } catch (error) {
+    // Handle errors
+    console.error("API playground error:", error);
+
+    // Prepare error response
+    const errorResponse = {
+      error: error.message,
+      status: error.response?.status || 500,
+    };
+
+    // Include the response data if available
+    if (error.response?.data) {
+      errorResponse.data = error.response.data;
+    }
+
+    return res.status(errorResponse.status).json(errorResponse);
+  }
 }
