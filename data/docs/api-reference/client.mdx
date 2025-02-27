@@ -1,0 +1,119 @@
+---
+title: "Client API Reference"
+description: "Complete reference for the SJM client SDKs"
+---
+
+# Client SDK Reference
+
+<FuturisticCard>
+  Comprehensive documentation for SJM's client libraries and API endpoints.
+</FuturisticCard>
+
+## Installation
+
+<CodeTabs
+  tabs={{
+    npm: "npm install @sjm/client",
+    yarn: "yarn add @sjm/client",
+    pip: "pip install sjm-client",
+  }}
+/>
+
+## Client Configuration
+
+<CodeHighlight
+  code={`import { SJMClient } from '@sjm/client';
+
+const client = new SJMClient({
+apiKey: process.env.SJM_API_KEY,
+environment: 'production', // or 'staging'
+timeout: 30000, // 30 seconds
+retries: 3
+});`}
+language="javascript"
+/>
+
+## Available Methods
+
+### match()
+
+Find matching freelancers for a project.
+
+<CodeHighlight
+  code={`const matches = await client.match({
+  description: string,
+  requiredSkills: string[],
+  budget?: {
+    min: number,
+    max: number
+  },
+  preferences?: {
+    timezone?: string,
+    availability?: string,
+    experienceYears?: number
+  },
+  weights?: {
+    content?: number,
+    collaborative?: number,
+    experience?: number,
+    rating?: number
+  }
+});`}
+  language="typescript"
+/>
+
+### extractSkills()
+
+Extract skills from text using AI.
+
+<CodeHighlight
+  code={`const skills = await client.extractSkills(
+  "Looking for a full-stack developer with React and Node.js experience"
+);`}
+  language="javascript"
+/>
+
+### generateInterview()
+
+Generate AI-powered technical interviews.
+
+<CodeHighlight
+  code={`const interview = await client.generateInterview({
+  projectId: string,
+  candidateId: string,
+  requiredSkills: string[]
+});`}
+  language="typescript"
+/>
+
+## Error Handling
+
+<CodeHighlight
+  code={`try {
+  const matches = await client.match({
+    description: "React Native developer"
+  });
+} catch (error) {
+  if (error.code === 'RATE_LIMIT_EXCEEDED') {
+    // Handle rate limiting
+  } else if (error.code === 'INVALID_REQUEST') {
+    // Handle validation errors
+  } else {
+    // Handle other errors
+  }
+}`}
+  language="javascript"
+/>
+
+## Webhooks
+
+<CodeHighlight
+  code={`client.on('match.complete', (event) => {
+  console.log('Match completed:', event.data);
+});
+
+client.on('interview.ready', (event) => {
+console.log('Interview generated:', event.data);
+});`}
+language="javascript"
+/>

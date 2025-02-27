@@ -1,0 +1,222 @@
+---
+title: "Installation Guide"
+description: "Complete guide to installing and configuring SJM"
+---
+
+# Installing SJM
+
+<FuturisticCard>
+  <div className="flex items-center justify-between">
+    <div>
+      <h2 className="text-2xl font-bold mb-2">Installation Guide</h2>
+      <p className="text-gray-400">
+        Get started with SJM in your preferred environment
+      </p>
+    </div>
+  </div>
+</FuturisticCard>
+
+## Platform-specific Installation
+
+<CodeTabs
+  tabs={{
+    "Python": `# Using pip
+pip install sjm-ai
+
+# Using poetry
+
+poetry add sjm-ai
+
+# Using conda
+
+conda install -c sjm sjm-ai`,
+    "Node.js": `# Using npm
+npm install @sjm/client
+
+# Using yarn
+
+yarn add @sjm/client
+
+# Using pnpm
+
+pnpm add @sjm/client`,
+    "Docker": `# Pull the SJM server image
+docker pull sjm/server:latest
+
+# Run with environment variables
+
+docker run -d \\
+-e SJM_API_KEY=your_api_key \\
+-e SJM_ENVIRONMENT=production \\
+-p 3000:3000 \\
+sjm/server`
+}}
+/>
+
+## Environment Setup
+
+### Configuration File
+
+<CodeTabs
+  tabs={{
+    ".env": `SJM_API_KEY=your_api_key
+SJM_ENVIRONMENT=production
+SJM_TIMEOUT=30000
+SJM_MAX_RETRIES=3
+SJM_DEBUG=false`,
+    "config.json": `{
+  "apiKey": "your_api_key",
+  "environment": "production",
+  "timeout": 30000,
+  "maxRetries": 3,
+  "debug": false
+}`,
+    yaml: `sjm:
+  api_key: your_api_key
+  environment: production
+  timeout: 30000
+  max_retries: 3
+  debug: false`,
+  }}
+/>
+
+## SDK Initialization
+
+<CodeTabs
+  tabs={{
+    "Python": `from sjm.ai import MatchingEngine
+import os
+
+# Using environment variables
+
+engine = MatchingEngine(
+api_key=os.getenv('SJM_API_KEY'),
+environment='production'
+)
+
+# Or using direct configuration
+
+engine = MatchingEngine(
+api_key='your_api_key',
+environment='production',
+timeout=30000
+)`,
+    "Node.js": `import { SJMClient } from '@sjm/client';
+
+// Using environment variables
+const client = new SJMClient({
+apiKey: process.env.SJM_API_KEY
+});
+
+// Or using direct configuration
+const client = new SJMClient({
+apiKey: 'your_api_key',
+environment: 'production',
+timeout: 30000
+});`
+}}
+/>
+
+## System Requirements
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
+  <FuturisticCard>
+    <h3 className="text-lg font-bold mb-2">Python</h3>
+    <ul className="space-y-2 text-sm">
+      <li>Python 3.8 or higher</li>
+      <li>pip 20.0 or higher</li>
+      <li>4GB RAM minimum</li>
+    </ul>
+  </FuturisticCard>
+
+{" "}
+
+<FuturisticCard>
+  <h3 className="text-lg font-bold mb-2">Node.js</h3>
+  <ul className="space-y-2 text-sm">
+    <li>Node.js 14 or higher</li>
+    <li>npm 6.0 or higher</li>
+    <li>4GB RAM minimum</li>
+  </ul>
+</FuturisticCard>
+
+  <FuturisticCard>
+    <h3 className="text-lg font-bold mb-2">Docker</h3>
+    <ul className="space-y-2 text-sm">
+      <li>Docker 20.10 or higher</li>
+      <li>8GB RAM recommended</li>
+      <li>4 CPU cores recommended</li>
+    </ul>
+  </FuturisticCard>
+</div>
+
+## Verification
+
+<InteractiveDemo
+  title="Test Your Installation"
+  description="Verify your SJM installation is working correctly"
+  initialCode={`// Initialize the client
+const client = new SJMClient({
+  apiKey: process.env.SJM_API_KEY
+});
+
+// Test connection
+const status = await client.testConnection();
+console.log('Connection status:', status);
+
+// Try a basic operation
+const skills = await client.extractSkills(
+"Need a React developer"
+);
+console.log('Extracted skills:', skills);`}
+/>
+
+## Common Issues
+
+<div className="space-y-6 mt-8">
+  <FeaturedExample
+    title="API Key Issues"
+    description="Troubleshoot API key configuration problems"
+    code={`// Check if API key is properly set
+if (!process.env.SJM_API_KEY) {
+  throw new Error('SJM_API_KEY not found in environment');
+}
+
+// Verify API key format
+if (!/^sjm\_[a-zA-Z0-9]{32}$/.test(process.env.SJM_API_KEY)) {
+throw new Error('Invalid API key format');
+}`}
+/>
+
+  <FeaturedExample
+    title="Connection Issues"
+    description="Handle common connection problems"
+    code={`try {
+  await client.testConnection();
+} catch (error) {
+  if (error.code === 'ECONNREFUSED') {
+    console.error('Connection refused. Check your network.');
+  } else if (error.code === 'TIMEOUT') {
+    console.error('Connection timed out. Try increasing timeout.');
+  }
+}`}
+  />
+</div>
+
+## Next Steps
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+  <Link href="/docs/quickstart">
+    <FuturisticCard>
+      <h3 className="text-lg font-bold mb-2">Quick Start Guide →</h3>
+      <p className="text-sm text-gray-400">Build your first integration</p>
+    </FuturisticCard>
+  </Link>
+
+  <Link href="/docs/sdk/nodejs">
+    <FuturisticCard>
+      <h3 className="text-lg font-bold mb-2">SDK Reference →</h3>
+      <p className="text-sm text-gray-400">Explore the full SDK capabilities</p>
+    </FuturisticCard>
+  </Link>
+</div>

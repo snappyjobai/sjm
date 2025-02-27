@@ -1,0 +1,185 @@
+---
+title: "REST API Reference"
+description: "Complete guide to using SJM's REST API endpoints"
+---
+
+# REST API Documentation
+
+<FuturisticCard>
+  <div className="flex items-center justify-between">
+    <h2 className="text-2xl font-bold mb-2">REST API</h2>
+    <div className="text-gray-400">
+      Direct API access for any platform or language
+    </div>
+  </div>
+</FuturisticCard>
+
+## Authentication
+
+All API requests require authentication using your API key in the headers:
+
+<CodeHighlight
+  code={`curl -X POST https://api.sjm.dev/v1/match \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json"`}
+  language="bash"
+/>
+
+## Core Endpoints
+
+### Matching API
+
+<CodeTabs
+  tabs={{
+    "Request": `POST /v1/match
+Content-Type: application/json
+Authorization: Bearer YOUR_API_KEY
+
+{
+"description": "React Native developer needed",
+"requiredSkills": ["React Native", "TypeScript"],
+"preferences": {
+"experienceYears": 3,
+"availability": "full-time"
+}
+}`,
+    "Response": `{
+"matches": [
+{
+"id": "f123",
+"name": "John Doe",
+"score": 0.95,
+"skills": ["React Native", "TypeScript"],
+"experience": 5,
+"hourlyRate": 75
+}
+],
+"metadata": {
+"totalResults": 1,
+"processingTime": "0.234s"
+}
+}`
+}}
+/>
+
+### Skills Extraction
+
+<CodeTabs
+  tabs={{
+    "Request": `POST /v1/skills/extract
+Content-Type: application/json
+Authorization: Bearer YOUR_API_KEY
+
+{
+"text": "Looking for a full-stack developer with React and Node.js"
+}`,
+    "Response": `{
+"skills": [
+{
+"name": "React",
+"confidence": 0.98,
+"type": "framework"
+},
+{
+"name": "Node.js",
+"confidence": 0.96,
+"type": "runtime"
+},
+{
+"name": "Full-stack",
+"confidence": 0.92,
+"type": "role"
+}
+]
+}`
+}}
+/>
+
+## Real-time WebSocket API
+
+<CodeHighlight
+  code={`// Initialize WebSocket connection
+const ws = new WebSocket('wss://api.sjm.dev/v1/ws');
+
+// Authentication
+ws.send(JSON.stringify({
+type: 'auth',
+apiKey: 'YOUR_API_KEY'
+}));
+
+// Start matching
+ws.send(JSON.stringify({
+type: 'match',
+data: {
+skills: ["React", "Node.js"],
+maxResults: 10
+}
+}));
+
+// Handle results
+ws.onmessage = (event) => {
+const match = JSON.parse(event.data);
+console.log('New match:', match);
+};`}
+language="javascript"
+/>
+
+## Rate Limiting
+
+<FuturisticCard>
+  <div className="space-y-2">
+    <h3 className="font-bold">Standard Rate Limits:</h3>
+    <ul className="list-disc pl-4">
+      <li>1000 requests per hour</li>
+      <li>10 concurrent WebSocket connections</li>
+      <li>Rate limit headers included in responses</li>
+    </ul>
+  </div>
+</FuturisticCard>
+
+## Error Handling
+
+<CodeTabs
+  tabs={{
+    "Rate Limit": `{
+  "error": {
+    "code": "RATE_LIMIT_EXCEEDED",
+    "message": "Rate limit exceeded",
+    "retryAfter": 3600
+  }
+}`,
+    Validation: `{
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "Invalid request parameters",
+    "details": {
+      "requiredSkills": "Must provide at least one skill"
+    }
+  }
+}`,
+    Auth: `{
+  "error": {
+    "code": "UNAUTHORIZED",
+    "message": "Invalid or expired API key"
+  }
+}`,
+  }}
+/>
+
+## SDK Examples
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+  <Link href="/docs/sdk/python">
+    <FuturisticCard>
+      <h3 className="text-lg font-bold mb-2">Python SDK →</h3>
+      <p className="text-sm text-gray-400">Use our Python client library</p>
+    </FuturisticCard>
+  </Link>
+
+  <Link href="/docs/sdk/nodejs">
+    <FuturisticCard>
+      <h3 className="text-lg font-bold mb-2">Node.js SDK →</h3>
+      <p className="text-sm text-gray-400">Use our Node.js client library</p>
+    </FuturisticCard>
+  </Link>
+</div>

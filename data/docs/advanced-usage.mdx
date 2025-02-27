@@ -1,0 +1,83 @@
+---
+title: Advanced Usage
+description: Learn about advanced features and configurations
+---
+
+# Advanced Features
+
+<FuturisticCard>
+  Master SJM's advanced features and configurations for optimal performance.
+</FuturisticCard>
+
+## Configuration Options
+
+<CodeTabs
+  tabs={{
+    "Basic Config": `const config = {
+  timeout: 30000,
+  retries: 3,
+  backoff: {
+    initial: 1000,
+    multiplier: 2,
+    max: 10000
+  }
+}`,
+    "Advanced Config": `const config = {
+  timeout: 30000,
+  retries: 3,
+  backoff: {
+    initial: 1000,
+    multiplier: 2,
+    max: 10000
+  },
+  rateLimit: {
+    maxRequests: 100,
+    perWindow: '1m'
+  },
+  cache: {
+    ttl: '1h',
+    maxSize: '100mb'
+  }
+}`,
+  }}
+/>
+
+## Pipeline Visualization
+
+<ApiVisualizer endpoint="/api/pipeline/create" method="POST" />
+
+## Try It Yourself
+
+<InteractiveDemo
+  title="Custom Pipeline"
+  description="Create a custom processing pipeline"
+  initialCode={`const pipeline = new SJM.Pipeline()
+  .addStep('normalize')
+  .addStep('transform', {
+    rules: ['capitalize', 'trim']
+  })
+  .addStep('validate');
+
+const result = await pipeline.process(input);`}
+/>
+
+## Advanced Example
+
+<FeaturedExample
+  title="WebSocket Integration"
+  description="Real-time data processing with WebSocket connections"
+  code={`const ws = new WebSocket('wss://api.sjm.dev/stream');
+
+ws.onmessage = (event) => {
+const result = JSON.parse(event.data);
+console.log('Received:', result);
+};
+
+ws.send(JSON.stringify({
+type: 'process',
+data: {
+text: 'Process this in real-time'
+}
+}));`}
+demoUrl="https://demo.sjm.dev/websocket"
+/>

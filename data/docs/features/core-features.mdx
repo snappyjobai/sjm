@@ -1,0 +1,186 @@
+---
+title: "Core Features"
+description: "Deep dive into SJM's core capabilities"
+---
+
+# Core Features
+
+<FuturisticCard>
+  <div className="flex items-center justify-between">
+    <h2 className="text-2xl font-bold mb-2">Enterprise-Grade Capabilities</h2>
+    <div className="text-gray-400">Built for scale and precision</div>
+  </div>
+</FuturisticCard>
+
+## AI-Powered Matching
+
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 my-8">
+  <FeaturedExample
+    title="Neural Matching"
+    description="Advanced neural networks for precise talent matching"
+    code={`const matches = await client.match({
+  description: "Senior React Native developer",
+  requiredSkills: ["React Native", "TypeScript"],
+  preferences: {
+    experienceYears: 5,
+    availability: "full-time"
+  },
+  weights: {
+    technical: 0.6,
+    experience: 0.2,
+    communication: 0.2
+  }
+});`}
+  />
+
+  <FeaturedExample
+    title="Real-time Processing"
+    description="Handle thousands of matches per second"
+    code={`// Initialize streaming
+const stream = client.connectStream({
+  maxConnections: 10,
+  reconnectDelay: 1000
+});
+
+// Process matches in real-time
+stream.on("match", (result) => {
+console.log("New match found:", result);
+});`}
+/>
+
+</div>
+
+## Skills Analysis
+
+<CodeTabs
+  tabs={{
+    Basic: `// Extract skills from text
+const skills = await client.extractSkills(
+  "Looking for a full-stack developer with React, Node.js, and AWS experience"
+);`,
+    Advanced: `// Advanced skill analysis
+const analysis = await client.analyzeSkills({
+  text: "Senior full-stack developer with 5 years React experience",
+  options: {
+    extractExperience: true,
+    categorize: true,
+    validateSkills: true
+  }
+});`,
+  }}
+/>
+
+## Interview Generation
+
+<div className="space-y-6">
+  <FeaturedExample
+    title="AI Interviewer"
+    description="Generate tailored technical interviews"
+    code={`const interview = await client.generateInterview({
+  role: "Senior Full Stack Developer",
+  requiredSkills: ["React", "Node.js", "AWS"],
+  experienceLevel: "senior",
+  specializations: ["microservices", "real-time"]
+});`}
+  />
+</div>
+
+## Performance Metrics
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
+  <FuturisticCard>
+    <h3 className="text-lg font-bold mb-2">Matching Accuracy</h3>
+    <div className="text-4xl font-bold text-accent mb-2">97%</div>
+    <p className="text-sm text-gray-400">Success rate for technical matches</p>
+  </FuturisticCard>
+
+{" "}
+
+<FuturisticCard>
+  <h3 className="text-lg font-bold mb-2">Processing Speed</h3>
+  <div className="text-4xl font-bold text-accent mb-2">50ms</div>
+  <p className="text-sm text-gray-400">Average matching response time</p>
+</FuturisticCard>
+
+  <FuturisticCard>
+    <h3 className="text-lg font-bold mb-2">Scale</h3>
+    <div className="text-4xl font-bold text-accent mb-2">10k+</div>
+    <p className="text-sm text-gray-400">Matches processed per second</p>
+  </FuturisticCard>
+</div>
+
+## Integration Examples
+
+<InteractiveDemo
+  title="Try Core Features"
+  description="Experiment with SJM's core capabilities"
+  initialCode={`// Initialize client
+const client = new SJMClient({ apiKey: "demo-key" });
+
+// Extract skills
+const skills = await client.extractSkills(
+"Need a senior React developer with AWS experience"
+);
+
+// Generate interview
+const interview = await client.generateInterview({
+skills: skills,
+experienceLevel: "senior"
+});
+
+// Find matches
+const matches = await client.match({
+skills: skills,
+interview: interview.id
+});
+
+// Process results
+console.log({
+extractedSkills: skills,
+interviewQuestions: interview.questions,
+matchResults: matches
+});`}
+/>
+
+## Architecture Overview
+
+<FuturisticCard>
+  <div className="space-y-4">
+    <div className="flex items-center gap-4">
+      <div className="p-3 rounded-lg bg-accent/10">
+        <div className="text-2xl text-accent">⚡</div>
+      </div>
+      <div>
+        <h3 className="text-lg font-bold">High Performance</h3>
+        <p className="text-sm text-gray-400">
+          Distributed matching engine with automatic scaling
+        </p>
+      </div>
+    </div>
+
+    <div className="flex items-center gap-4">
+      <div className="p-3 rounded-lg bg-accent/10">
+        <div className="text-2xl text-accent">🔒</div>
+      </div>
+      <div>
+        <h3 className="text-lg font-bold">Enterprise Security</h3>
+        <p className="text-sm text-gray-400">
+          SOC 2 compliant with end-to-end encryption
+        </p>
+      </div>
+    </div>
+
+    <div className="flex items-center gap-4">
+      <div className="p-3 rounded-lg bg-accent/10">
+        <div className="text-2xl text-accent">🌐</div>
+      </div>
+      <div>
+        <h3 className="text-lg font-bold">Global Infrastructure</h3>
+        <p className="text-sm text-gray-400">
+          Multi-region deployment with automatic failover
+        </p>
+      </div>
+    </div>
+
+  </div>
+</FuturisticCard>

@@ -1,0 +1,119 @@
+---
+title: "Matching Engine Guide"
+description: "Deep dive into SJM's AI-powered matching system"
+---
+
+# Understanding the Matching Engine
+
+<FuturisticCard>
+  <div className="flex items-center gap-4">
+    <div className="flex-1">
+      <h2 className="text-xl font-bold mb-2">Hybrid Matching Algorithm</h2>
+      <p>
+        Combining collaborative filtering, content-based matching, and
+        AI-powered analysis
+      </p>
+    </div>
+  </div>
+</FuturisticCard>
+
+## Architecture Overview
+
+SJM's matching engine uses multiple models working in parallel:
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+  <FeaturedExample
+    title="Content-Based Matching"
+    description="TF-IDF vectorization for skill comparison"
+    code={`const contentScores = await client.getContentScores({
+  requiredSkills: ["React Native", "TypeScript"],
+  projectDescription: "Mobile app development"
+});`}
+  />
+
+  <FeaturedExample
+    title="Collaborative Filtering"
+    description="Historical success patterns"
+    code={`const collaborativeScores = await client.getCollaborativeScores({
+  projectType: "mobile-development",
+  budget: { min: 1000, max: 5000 },
+  timeline: "3-months"
+});`}
+  />
+</div>
+
+## Customizing Match Weights
+
+<CodeTabs
+  tabs={{
+    Basic: `const matches = await client.match({
+  skills: ["React", "Node.js"],
+  weights: {
+    technical: 0.7,
+    soft: 0.3
+  }
+});`,
+    Advanced: `const matches = await client.match({
+  skills: ["React", "Node.js"],
+  weights: {
+    content: 0.4,
+    collaborative: 0.3,
+    experience: 0.2,
+    rating: 0.1
+  },
+  preferences: {
+    timezone: "UTC-5",
+    availability: "full-time",
+    minExperience: 5
+  }
+});`,
+  }}
+/>
+
+## Visualization
+
+<ApiVisualizer
+  endpoint="/api/v1/match"
+  method="POST"
+  sampleRequest={{
+    description: "Senior full-stack developer needed",
+    requiredSkills: ["React", "Node.js", "PostgreSQL"],
+    preferences: {
+      experienceYears: 5,
+      availability: "full-time",
+    },
+  }}
+/>
+
+## Score Components
+
+The final match score is calculated using:
+
+```python
+final_score = (
+  weights['content'] * content_score +
+  weights['collaborative'] * collaborative_score +
+  weights['experience'] * experience_score +
+  weights['rating'] * rating_score
+)
+```
+
+<InteractiveDemo
+  title="Test Weight Configurations"
+  description="Experiment with different weight combinations"
+  initialCode={`// Try different weight configurations
+const weights = {
+  content: 0.4,       // Skills and requirements match
+  collaborative: 0.3, // Historical success patterns
+  experience: 0.2,    // Years of relevant experience
+  rating: 0.1         // Client satisfaction score
+};
+
+const matches = await client.match({
+description: "Full-stack web application",
+requiredSkills: ["React", "Node.js", "PostgreSQL"],
+weights
+});
+
+console.log(matches);`}
+/>

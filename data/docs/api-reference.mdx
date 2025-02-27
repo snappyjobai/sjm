@@ -1,0 +1,21 @@
+---
+title: "API Reference"
+description: "Complete SJM API documentation"
+---
+
+<FuturisticCard>
+  <h2 className="text-2xl font-bold mb-4">Core Endpoints</h2>
+  <APIPlayground
+    endpoint="/api/match"
+    method="POST"
+    defaultParams={{
+      projectDescription: "",
+      requiredSkills: [],
+      budget: { min: 0, max: 0 },
+    }}
+  />
+</FuturisticCard>
+
+<div className="mt-12">
+  <APIDocumentation />
+</div>

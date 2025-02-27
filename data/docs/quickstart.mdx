@@ -1,0 +1,117 @@
+---
+title: "Quick Start"
+description: "Get started with SJM in minutes"
+---
+
+# Quick Start Guide
+
+<FuturisticCard>
+  Learn how to integrate SJM into your project and start matching freelancers in
+  minutes.
+</FuturisticCard>
+
+## Installation
+
+<CodeTabs
+  tabs={{
+    pip: `pip install sjm-ai`,
+    npm: `npm install @sjm/client`,
+    yarn: `yarn add @sjm/client`,
+  }}
+/>
+
+## Basic Usage
+
+<CodeTabs
+  tabs={{
+    "Python": `from sjm.ai import MatchingEngine, Project
+
+# Initialize the engine
+
+engine = MatchingEngine()
+
+# Create a project
+
+project = Project(
+id="p1",
+description="Need a React Native developer",
+required_skills=["React Native", "JavaScript"],
+budget_range=(1000, 5000),
+complexity="medium",
+timeline=30
+)
+
+# Find matches
+
+matches = engine.get_top_matches(project)
+
+# Print top matches
+
+for match in matches:
+print(f"Match score: {match['combined_score']}")
+print(f"Freelancer: {match['freelancer'].name}")`,
+
+    "JavaScript": `import { SJMClient } from '@sjm/client';
+
+// Initialize client
+const client = new SJMClient({ apiKey: 'your_api_key' });
+
+// Find matches
+const matches = await client.match({
+description: "Need a React Native developer",
+requiredSkills: ["React Native", "JavaScript"],
+budget: {
+min: 1000,
+max: 5000
+}
+});
+
+console.log(matches);`,
+
+    "REST": `curl -X POST https://api.sjm.dev/v1/match \\
+
+-H "Authorization: Bearer YOUR_API_KEY" \\
+-H "Content-Type: application/json" \\
+-d '{
+"description": "Need a React Native developer",
+"requiredSkills": ["React Native", "JavaScript"],
+"budget": {
+"min": 1000,
+"max": 5000
+}
+}'`
+}}
+/>
+
+## Interactive Demo
+
+<InteractiveDemo
+  title="Try it Out"
+  description="Test the matching engine with sample data"
+  initialCode={`const project = {
+  description: "Looking for a full-stack developer",
+  requiredSkills: ["React", "Node.js", "MongoDB"],
+  budget: { min: 2000, max: 8000 }
+};
+
+const matches = await client.match(project);
+console.log(matches);`}
+/>
+
+## Next Steps
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+  <Link href="/docs/guides/skills-extraction">
+    <FuturisticCard>
+      <h3>Skills Extraction →</h3>
+      <p>Learn how SJM extracts skills from text</p>
+    </FuturisticCard>
+  </Link>
+
+  <Link href="/docs/guides/matching-engine">
+    <FuturisticCard>
+      <h3>Matching Engine →</h3>
+      <p>Deep dive into the matching algorithm</p>
+    </FuturisticCard>
+  </Link>
+</div>

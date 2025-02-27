@@ -1,0 +1,147 @@
+---
+title: "AI Matching"
+description: "Advanced AI-powered talent matching system"
+---
+
+# AI Matching System
+
+<FuturisticCard>
+  <div className="flex items-center justify-between">
+    <h2 className="text-2xl font-bold mb-2">Neural Matching Engine</h2>
+    <div className="text-gray-400">
+      Advanced AI models for precise talent matching
+    </div>
+  </div>
+</FuturisticCard>
+
+## How It Works
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+  <FeaturedExample
+    title="Semantic Analysis"
+    description="Deep learning for context understanding"
+    code={`// Analyze project requirements
+const analysis = await client.analyzeProject({
+  description: "Need a senior React developer",
+  context: {
+    team_size: 5,
+    project_duration: "6 months",
+    industry: "fintech"
+  }
+});`}
+  />
+
+  <FeaturedExample
+    title="Neural Matching"
+    description="Multi-dimensional similarity scoring"
+    code={`// Get neural matches
+const matches = await client.neuralMatch({
+  projectAnalysis: analysis,
+  thresholds: {
+    technical: 0.85,
+    experience: 0.75,
+    cultural: 0.80
+  }
+});`}
+  />
+</div>
+
+## Key Components
+
+### 1. Natural Language Processing
+
+<CodeHighlight
+  code={`const nlpAnalysis = await client.processText({
+  projectDescription: "Looking for a full-stack developer",
+  requirementDocs: ["job_spec.md", "technical_requirements.doc"],
+  extractionOptions: {
+    skills: true,
+    experience_level: true,
+    team_context: true
+  }
+});`}
+  language="javascript"
+/>
+
+### 2. Neural Network Models
+
+<CodeTabs
+  tabs={{
+    "Skill Vectors": `// Generate skill embeddings
+const skillVectors = await client.embedSkills([
+  "React", "Node.js", "AWS"
+], {
+  contextual: true,
+  version: "v2"
+});`,
+    "Experience Analysis": `// Analyze experience depth
+const experienceScore = await client.analyzeExperience({
+  years: 5,
+  roleHistory: ["Senior Developer", "Tech Lead"],
+  projectHistory: projectList
+});`,
+  }}
+/>
+
+### 3. Real-time Learning
+
+<CodeHighlight
+  code={`// Configure learning pipeline
+await client.configureLearning({
+  feedbackLoop: true,
+  adaptiveThresholds: true,
+  updateFrequency: "realtime",
+  metrics: ["match_success", "project_completion"]
+});`}
+  language="javascript"
+/>
+
+## Performance Metrics
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
+  <FuturisticCard>
+    <h3 className="text-lg font-bold">Accuracy</h3>
+    <div className="text-3xl font-bold text-accent">97.5%</div>
+    <p className="text-sm text-gray-400">Match precision rate</p>
+  </FuturisticCard>
+
+{" "}
+<FuturisticCard>
+  <h3 className="text-lg font-bold">Latency</h3>
+  <div className="text-3xl font-bold text-accent">50ms</div>
+  <p className="text-sm text-gray-400">Average response time</p>
+</FuturisticCard>
+
+  <FuturisticCard>
+    <h3 className="text-lg font-bold">Scale</h3>
+    <div className="text-3xl font-bold text-accent">10k+</div>
+    <p className="text-sm text-gray-400">Matches/second</p>
+  </FuturisticCard>
+</div>
+
+## Try It Out
+
+<InteractiveDemo
+  title="AI Matching Demo"
+  description="Test our neural matching engine"
+  initialCode={`const client = new SJMClient();
+
+// Configure matching parameters
+const matchingConfig = {
+project: {
+description: "Senior full-stack developer needed",
+required_skills: ["React", "Node.js", "AWS"],
+team_size: 5,
+project_duration: "6 months"
+},
+options: {
+useNeuralMatching: true,
+includeSimilarSkills: true,
+minConfidence: 0.85
+}
+};
+
+// Get matches
+const matches = await client.findMatches(matchingConfig);
+console.log("Top matches:", matches);`}
+/>

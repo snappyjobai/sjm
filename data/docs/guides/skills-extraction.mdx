@@ -1,0 +1,49 @@
+---
+title: "Skills Extraction"
+description: "Understanding SJM's intelligent skills extraction system"
+---
+
+# Skills Extraction
+
+<FuturisticCard>
+  Learn how SJM extracts and validates skills from project descriptions and
+  freelancer profiles.
+</FuturisticCard>
+
+## Overview
+
+The skills extraction system uses a combination of NLP techniques and AI models to accurately identify technical skills and expertise levels from text.
+
+## Basic Usage
+
+<CodeTabs
+  tabs={{
+    "Node.js": `const client = new SJMClient({ apiKey: 'your_api_key' });
+const skills = await client.extractSkills("Looking for a React Native developer with TypeScript experience");`,
+    "Python": `from sjm_client import Client
+
+client = Client(api_key="your_api_key")
+skills = client.extract_skills("Looking for a React Native developer with TypeScript experience")`,
+    "REST": `curl -X POST https://api.sjm.dev/v1/skills/extract \\
+-H "Authorization: Bearer YOUR_API_KEY" \\
+-H "Content-Type: application/json" \\
+-d '{
+"text": "Looking for a React Native developer with TypeScript experience"
+}'`
+}}
+/>
+
+## Skill Verification
+
+<CodeHighlight
+  code={`const result = await client.verifySkill("reactjs");
+console.log(result);
+// Output:
+{
+  exists: true,
+  similar_terms: ["React.js", "React Native"],
+  type: "skill",
+  matches: ["React.js"]
+}`}
+  language="javascript"
+/>

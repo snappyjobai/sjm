@@ -1,0 +1,60 @@
+---
+title: "AI-Powered Interviews"
+description: "Automated technical interviews using AI"
+---
+
+# AI-Powered Interviews
+
+SJM can conduct automated technical interviews using advanced AI models.
+
+## Interview Process
+
+<InteractiveDemo
+  title="Interview Generation"
+  description="See how SJM generates technical interview questions"
+  initialCode={`const interview = await client.generateInterview({
+  projectDescription: "Build a React Native app with TypeScript",
+  requiredSkills: ["React Native", "TypeScript", "Mobile Development"],
+  jobTitle: "Senior Mobile Developer"
+});
+
+console.log(interview.questions);`}
+/>
+
+## Evaluation System
+
+<CodeHighlight
+  code={`const evaluation = await client.evaluateInterview({
+  candidateId: "f123",
+  interviewId: "i456",
+  answers: [
+    "I have 5 years of experience with React Native...",
+    "For state management, I prefer using Redux..."
+  ]
+});`}
+  language="javascript"
+/>
+
+## Integration Example
+
+<FeaturedExample
+  title="Complete Interview Flow"
+  description="Handle the entire interview process"
+  code={`// 1. Generate interview
+const interview = await client.generateInterview({
+  projectId: "p123",
+  candidateId: "f456"
+});
+
+// 2. Conduct interview
+const answers = await collectCandidateAnswers(interview.questions);
+
+// 3. Evaluate responses
+const evaluation = await client.evaluateInterview({
+interviewId: interview.id,
+answers: answers
+});
+
+// 4. Get hiring recommendation
+console.log(evaluation.hiring_recommendation);`}
+/>

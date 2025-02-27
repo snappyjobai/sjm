@@ -1,0 +1,173 @@
+---
+title: "Node.js SDK"
+description: "Complete guide to using SJM with Node.js"
+---
+
+# Node.js SDK Reference
+
+<FuturisticCard>
+  <div className="flex items-center justify-between">
+    <h2 className="text-2xl font-bold mb-2">Node.js Integration</h2>
+    <div className="text-gray-400">
+      Enterprise-grade SDK for Node.js applications
+    </div>
+  </div>
+</FuturisticCard>
+
+## Installation
+
+<CodeTabs
+  tabs={{
+    npm: "npm install @sjm/client",
+    yarn: "yarn add @sjm/client",
+    pnpm: "pnpm add @sjm/client",
+  }}
+/>
+
+## Quick Setup
+
+<CodeHighlight
+  code={`import { SJMClient } from '@sjm/client';
+
+const client = new SJMClient({
+apiKey: process.env.SJM_API_KEY,
+environment: 'production'
+});`}
+language="javascript"
+/>
+
+## Core Features
+
+### Matching
+
+<CodeTabs
+  tabs={{
+    Basic: `const matches = await client.match({
+  description: "React Native developer needed",
+  requiredSkills: ["React Native", "TypeScript"]
+});`,
+    Advanced: `const matches = await client.match({
+  description: "Senior mobile developer",
+  requiredSkills: ["React Native", "TypeScript"],
+  preferences: {
+    experienceYears: 5,
+    availability: "full-time",
+    timezone: "UTC-5"
+  },
+  weights: {
+    skills: 0.4,
+    experience: 0.3,
+    ratings: 0.2,
+    availability: 0.1
+  }
+});`,
+  }}
+/>
+
+### Skills Extraction
+
+<CodeHighlight
+  code={`// Extract skills from text
+const skills = await client.extractSkills(
+  "Looking for a full-stack developer with React and Node.js experience"
+);
+
+// Verify specific skills
+const verification = await client.verifySkill("react");`}
+language="javascript"
+/>
+
+### Real-time Matching
+
+<CodeHighlight
+  code={`// Initialize WebSocket connection
+const stream = client.connectStream();
+
+// Listen for matches
+stream.on('match', (result) => {
+console.log('New match:', result);
+});
+
+// Start matching
+stream.startMatching({
+criteria: {
+skills: ["React", "Node.js"],
+maxResults: 10
+}
+});`}
+language="javascript"
+/>
+
+## Error Handling
+
+<CodeHighlight
+  code={`try {
+  const matches = await client.match({
+    description: "React developer"
+  });
+} catch (error) {
+  if (error instanceof SJMRateLimitError) {
+    // Handle rate limiting
+    await sleep(error.retryAfter);
+  } else if (error instanceof SJMValidationError) {
+    // Handle validation errors
+    console.error(error.details);
+  }
+}`}
+  language="javascript"
+/>
+
+## TypeScript Support
+
+<CodeHighlight
+  code={`import { 
+  SJMClient, 
+  MatchOptions, 
+  SkillVerification,
+  MatchResult
+} from '@sjm/client';
+
+const options: MatchOptions = {
+description: string;
+requiredSkills: string[];
+preferences?: {
+experienceYears?: number;
+timezone?: string;
+availability?: 'full-time' | 'part-time';
+};
+};`}
+language="typescript"
+/>
+
+## Examples
+
+<InteractiveDemo
+  title="Complete Integration"
+  description="Try out a full integration example"
+  initialCode={`import { SJMClient } from '@sjm/client';
+
+// Initialize client
+const client = new SJMClient({
+apiKey: 'demo-key'
+});
+
+// Extract skills from job description
+const description = "Need a React Native developer with TypeScript";
+const skills = await client.extractSkills(description);
+
+// Find matches
+const matches = await client.match({
+description,
+requiredSkills: skills,
+preferences: {
+experienceYears: 3,
+availability: "full-time"
+}
+});
+
+// Process results
+console.log(\`Found \${matches.length} matches:\`);
+matches.forEach(match => {
+console.log(\`- \${match.freelancer.name} (Score: \${match.score})\`);
+});`}
+/>

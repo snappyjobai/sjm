@@ -1,0 +1,40 @@
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.doc-gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent via-purple-500 to-accent;
+  background-size: 200% 200%;
+  animation: gradient-flow 8s ease infinite;
+}
+
+.doc-code-window {
+  @apply relative rounded-xl bg-black/50 backdrop-blur-xl border border-accent/20;
+  box-shadow: 0 0 30px -10px theme("colors.accent.DEFAULT" / 20%);
+}
+
+.doc-nav-item {
+  @apply relative overflow-hidden rounded-lg transition-all duration-300;
+}
+
+.doc-nav-item::before {
+  content: "";
+  @apply absolute inset-0 bg-gradient-to-r from-accent to-purple-600 opacity-0 transition-opacity duration-300;
+}
+
+.doc-nav-item:hover::before {
+  @apply opacity-10;
+}
+
+.doc-scroll-indicator {
+  @apply fixed top-0 left-0 h-1 bg-accent/80 transition-all duration-300;
+  width: var(--scroll-width);
+}

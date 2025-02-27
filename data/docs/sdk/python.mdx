@@ -1,0 +1,193 @@
+---
+title: "Python SDK"
+description: "Complete guide to using SJM with Python"
+---
+
+# Python SDK Reference
+
+<FuturisticCard>
+  <div className="flex items-center justify-between">
+    <h2 className="text-2xl font-bold mb-2">Python Integration</h2>
+    <div className="text-gray-400">
+      Enterprise-grade Python SDK for AI-powered talent matching
+    </div>
+  </div>
+</FuturisticCard>
+
+## Installation
+
+<CodeTabs
+  tabs={{
+    pip: "pip install sjm-ai",
+    poetry: "poetry add sjm-ai",
+    conda: "conda install -c sjm sjm-ai",
+  }}
+/>
+
+## Quick Setup
+
+<CodeHighlight
+  code={`from sjm.ai import MatchingEngine
+import os
+
+engine = MatchingEngine(
+api_key=os.getenv('SJM_API_KEY'),
+environment='production'
+)`}
+language="python"
+/>
+
+## Core Features
+
+### Matching Engine
+
+<CodeTabs
+  tabs={{
+    "Basic": `from sjm.ai import Project
+
+project = Project(
+description="Need a React Native developer",
+required_skills=["React Native", "TypeScript"],
+budget_range=(1000, 5000)
+)
+
+matches = engine.get_top_matches(project)`,
+    "Advanced": `matches = engine.get_top_matches(
+project,
+weights={
+'content': 0.4,
+'collaborative': 0.3,
+'experience': 0.2,
+'rating': 0.1
+},
+preferences={
+'timezone': 'UTC-5',
+'availability': 'full-time',
+'min_experience': 5
+}
+)`
+}}
+/>
+
+### Skills Analysis
+
+<CodeHighlight
+  code={`from sjm.ai import SkillsExtractor
+
+extractor = SkillsExtractor()
+
+# Extract skills from text
+
+skills = extractor.extract_skills(
+"Looking for a full-stack developer with React and Node.js"
+)
+
+# Validate specific skills
+
+validation = extractor.validate_skills(["react", "nodejs"])`}
+language="python"
+/>
+
+### AI Interviews
+
+<CodeHighlight
+  code={`from sjm.ai import AIInterviewer
+
+interviewer = AIInterviewer()
+
+# Generate interview questions
+
+interview = interviewer.generate_interview(
+project_id="p123",
+required_skills=["React Native", "TypeScript"],
+experience_level="senior"
+)
+
+# Evaluate responses
+
+evaluation = interviewer.evaluate_responses(
+interview_id=interview.id,
+responses=candidate_responses
+)`}
+language="python"
+/>
+
+## Async Support
+
+<CodeHighlight
+  code={`from sjm.ai import AsyncMatchingEngine
+import asyncio
+
+async def match_candidates():
+engine = AsyncMatchingEngine()
+
+    async with engine.batch() as batch:
+        tasks = [
+            batch.add_project(project)
+            for project in projects
+        ]
+
+    results = await asyncio.gather(*tasks)
+    return results`}
+
+language="python"
+/>
+
+## Error Handling
+
+<CodeHighlight
+  code={`from sjm.ai.exceptions import (
+    SJMAPIError,
+    RateLimitError,
+    ValidationError
+)
+
+try:
+matches = engine.get_top_matches(project)
+except RateLimitError as e:
+print(f"Rate limit exceeded. Retry after {e.retry_after} seconds")
+except ValidationError as e:
+print(f"Invalid input: {e.details}")
+except SJMAPIError as e:
+print(f"API error: {e}")`}
+language="python"
+/>
+
+## Examples
+
+<InteractiveDemo
+  title="Complete Integration Example"
+  description="Try a full integration with the Python SDK"
+  initialCode={`from sjm.ai import MatchingEngine, Project, SkillsExtractor
+
+# Initialize components
+
+engine = MatchingEngine()
+extractor = SkillsExtractor()
+
+# Extract skills from description
+
+description = "Need a React Native developer with TypeScript"
+skills = extractor.extract_skills(description)
+
+# Create project
+
+project = Project(
+id="p1",
+description=description,
+required_skills=skills,
+budget_range=(1000, 5000),
+complexity="medium",
+timeline=30
+)
+
+# Get matches
+
+matches = engine.get_top_matches(project, top_n=5)
+
+# Process results
+
+for match in matches:
+print(f"Match score: {match.score:.2f}")
+print(f"Freelancer: {match.freelancer.name}")`}
+/>

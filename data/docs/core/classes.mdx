@@ -1,0 +1,288 @@
+---
+title: "SJM Core Classes"
+description: "Complete reference for SJM's core classes and their usage"
+---
+
+# Core Classes Reference
+
+<FuturisticCard>
+  <div className="flex items-center justify-between">
+    <h2 className="text-2xl font-bold mb-2">SJM Core Classes</h2>
+    <div className="text-gray-400">
+      Comprehensive guide to SJM's main components
+    </div>
+  </div>
+</FuturisticCard>
+
+## MatchingEngine
+
+The primary class for handling talent matching operations.
+
+<CodeTabs
+  tabs={{
+    "Python": `from sjm.ai import MatchingEngine
+
+engine = MatchingEngine(api_key="your_key")
+
+# Basic matching
+
+matches = engine.find_matches(
+description="Senior React Developer",
+required_skills=["React", "TypeScript"]
+)
+
+# Advanced matching with weights
+
+matches = engine.find_matches(
+description="Senior React Developer",
+required_skills=["React", "TypeScript"],
+weights={
+"technical": 0.6,
+"experience": 0.3,
+"communication": 0.1
+}
+)`,
+    "Node.js": `import { MatchingEngine } from '@sjm/client';
+
+const engine = new MatchingEngine({
+apiKey: 'your_key'
+});
+
+// Basic matching
+const matches = await engine.findMatches({
+description: "Senior React Developer",
+requiredSkills: ["React", "TypeScript"]
+});
+
+// Advanced matching with weights
+const matches = await engine.findMatches({
+description: "Senior React Developer",
+requiredSkills: ["React", "TypeScript"],
+weights: {
+technical: 0.6,
+experience: 0.3,
+communication: 0.1
+}
+});`
+}}
+/>
+
+## SkillsAnalyzer
+
+Handles skill extraction and analysis from text.
+
+<CodeTabs
+  tabs={{
+    "Python": `from sjm.ai import SkillsAnalyzer
+
+analyzer = SkillsAnalyzer(api_key="your_key")
+
+# Extract skills from text
+
+skills = analyzer.extract_skills(
+"Looking for a full-stack developer with React and Node.js"
+)
+
+# Validate specific skills
+
+validation = analyzer.validate_skills(
+skills=["react", "nodejs"],
+context="web development"
+)
+
+# Get skill relationships
+
+related = analyzer.get_related_skills("react", limit=5)`,
+    "Node.js": `import { SkillsAnalyzer } from '@sjm/client';
+
+const analyzer = new SkillsAnalyzer({
+apiKey: 'your_key'
+});
+
+// Extract skills from text
+const skills = await analyzer.extractSkills(
+"Looking for a full-stack developer with React and Node.js"
+);
+
+// Validate specific skills
+const validation = await analyzer.validateSkills({
+skills: ["react", "nodejs"],
+context: "web development"
+});
+
+// Get skill relationships
+const related = await analyzer.getRelatedSkills("react", { limit: 5 });`
+}}
+/>
+
+## InterviewGenerator
+
+Manages AI-powered technical interview generation and evaluation.
+
+<CodeTabs
+  tabs={{
+    "Python": `from sjm.ai import InterviewGenerator
+
+generator = InterviewGenerator(api_key="your_key")
+
+# Generate interview
+
+interview = generator.create_interview(
+role="Senior Full Stack Developer",
+required_skills=["React", "Node.js", "AWS"],
+experience_level="senior"
+)
+
+# Evaluate responses
+
+evaluation = generator.evaluate_responses(
+interview_id=interview.id,
+responses={
+"q1": "I have 5 years of experience with React...",
+"q2": "I've built several microservices using Node.js..."
+}
+)`,
+    "Node.js": `import { InterviewGenerator } from '@sjm/client';
+
+const generator = new InterviewGenerator({
+apiKey: 'your_key'
+});
+
+// Generate interview
+const interview = await generator.createInterview({
+role: "Senior Full Stack Developer",
+requiredSkills: ["React", "Node.js", "AWS"],
+experienceLevel: "senior"
+});
+
+// Evaluate responses
+const evaluation = await generator.evaluateResponses({
+interviewId: interview.id,
+responses: {
+q1: "I have 5 years of experience with React...",
+q2: "I've built several microservices using Node.js..."
+}
+});`
+}}
+/>
+
+## ProfileEnricher
+
+Enhances and validates freelancer profiles.
+
+<CodeTabs
+  tabs={{
+    "Python": `from sjm.ai import ProfileEnricher
+
+enricher = ProfileEnricher(api_key="your_key")
+
+# Enrich profile
+
+enriched = enricher.enhance_profile(
+profile_data={
+"name": "John Doe",
+"skills": ["React", "Node.js"],
+"experience": "5 years"
+},
+options={
+"validate_skills": True,
+"extract_experience": True,
+"infer_level": True
+}
+)
+
+# Validate experience
+
+validation = enricher.validate_experience(
+claims=["Built an e-commerce platform with React"],
+skills=["React", "E-commerce"]
+)`,
+    "Node.js": `import { ProfileEnricher } from '@sjm/client';
+
+const enricher = new ProfileEnricher({
+apiKey: 'your_key'
+});
+
+// Enrich profile
+const enriched = await enricher.enhanceProfile({
+profileData: {
+name: "John Doe",
+skills: ["React", "Node.js"],
+experience: "5 years"
+},
+options: {
+validateSkills: true,
+extractExperience: true,
+inferLevel: true
+}
+});
+
+// Validate experience
+const validation = await enricher.validateExperience({
+claims: ["Built an e-commerce platform with React"],
+skills: ["React", "E-commerce"]
+});`
+}}
+/>
+
+## Class Properties and Methods
+
+### MatchingEngine
+
+<FuturisticCard>
+  <div className="space-y-2">
+    <div className="font-mono text-sm">
+      <strong>Properties:</strong>- max_results: int - threshold: float -
+      weights: Dict[str, float]
+    </div>
+    <div className="font-mono text-sm">
+      <strong>Methods:</strong>- find_matches() - get_match_score() -
+      update_weights()
+    </div>
+  </div>
+</FuturisticCard>
+
+### SkillsAnalyzer
+
+<FuturisticCard>
+  <div className="space-y-2">
+    <div className="font-mono text-sm">
+      <strong>Properties:</strong>- confidence_threshold: float - language: str
+      - max_skills: int
+    </div>
+    <div className="font-mono text-sm">
+      <strong>Methods:</strong>- extract_skills() - validate_skills() -
+      get_related_skills()
+    </div>
+  </div>
+</FuturisticCard>
+
+### InterviewGenerator
+
+<FuturisticCard>
+  <div className="space-y-2">
+    <div className="font-mono text-sm">
+      <strong>Properties:</strong>- difficulty_level: str - question_count: int
+      - time_limit: int
+    </div>
+    <div className="font-mono text-sm">
+      <strong>Methods:</strong>- create_interview() - evaluate_responses() -
+      get_interview_stats()
+    </div>
+  </div>
+</FuturisticCard>
+
+### ProfileEnricher
+
+<FuturisticCard>
+  <div className="space-y-2">
+    <div className="font-mono text-sm">
+      <strong>Properties:</strong>- enhancement_level: str -
+      validation_threshold: float
+    </div>
+    <div className="font-mono text-sm">
+      <strong>Methods:</strong>- enhance_profile() - validate_experience() -
+      infer_skills()
+    </div>
+  </div>
+</FuturisticCard>

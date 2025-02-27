@@ -1,0 +1,196 @@
+---
+title: "SJM AI: Intelligent Freelancer Matching Platform"
+description: "Enterprise-grade AI-powered talent matching and interviewing system"
+---
+
+# SJM AI Platform: Intelligent Talent Matching
+
+<FuturisticCard>
+  <div className="flex items-center justify-between">
+    <div>
+      <h2 className="text-2xl font-bold mb-2">
+        Transforming Talent Acquisition
+      </h2>
+      <p className="text-gray-400">
+        Advanced AI-driven platform for precise freelancer matching and
+        interviews
+      </p>
+    </div>
+    <div className="text-4xl text-accent">🤖</div>
+  </div>
+</FuturisticCard>
+
+## Platform Overview
+
+SJM AI is a sophisticated platform that leverages artificial intelligence to revolutionize freelancer matching and hiring. By combining advanced natural language processing, machine learning, and intelligent algorithms, we solve the complex challenge of finding the right talent for your projects.
+
+## Core Technologies
+
+Our platform integrates several cutting-edge technologies:
+
+1. **AI-Powered Skills Extraction**
+
+   - Uses advanced NLP techniques to parse job descriptions and resumes
+   - Extracts and normalizes technical and soft skills
+   - Handles complex skill variations and synonyms
+
+2. **Intelligent Matching Engine**
+
+   - Multi-model approach combining content-based and collaborative filtering
+   - Considers skills, experience, ratings, and project requirements
+   - Generates highly accurate freelancer recommendations
+
+3. **AI-Driven Interviewing**
+   - Automated question generation
+   - Intelligent answer evaluation
+   - Multi-mode interview support (AI-generated, custom, hybrid)
+
+## Key Features Demonstration
+
+<CodeTabs
+  tabs={{
+    "Skills Extraction": `from sjm import SkillsExtract
+
+skill_extractor = SkillsExtract()
+
+# Extract skills from job description
+
+skills = skill_extractor.extract_skills(
+"Seeking a React developer with Node.js backend experience"
+)
+
+# Verify specific skills
+
+react_verification = skill_extractor.verify_keyword("React.js")
+print(skills)
+print(react_verification)`,
+    "Matching Process": `from sjm import MatchingEngine, Project, Freelancer
+
+# Initialize matching engine
+
+matching_engine = MatchingEngine(
+freelancers=[...], # List of available freelancers
+projects=[...] # List of projects
+)
+
+# Create project requirements
+
+project = Project(
+description="Build a mobile app with React Native",
+required_skills=["React Native", "TypeScript"],
+budget_range=(5000, 10000),
+complexity="medium",
+timeline=30
+)
+
+# Get top matches
+
+top_matches = matching_engine.get_top_matches(project)
+`
+}}
+/>
+
+## Advanced Interview System
+
+The SJM AI Interview module supports multiple interview modes:
+
+- **AI Full Mode**: Complete AI-generated questions and evaluation
+- **AI Questions Mode**: AI generates questions, human evaluates
+- **Custom Full Mode**: User-defined questions and scoring
+- **Hybrid Mode**: Combination of AI and custom questions
+
+<InteractiveDemo
+  title="AI Interview Simulation"
+  description="Simulate an AI-powered technical interview"
+  initialCode={`from sjm import MatchingEngine, AIInterviewer
+
+# Prepare interview configuration
+
+interview_config = {
+"mode": "ai_full",
+"freelancer_profile": {
+"id": "f123",
+"job_title": "Senior React Developer",
+"skills": ["React.js", "TypeScript", "Node.js"]
+},
+"project_details": {
+"description": "Build a modern web application",
+"required_skills": ["React.js", "TypeScript"]
+}
+}
+
+# Conduct AI interview
+
+ai_interviewer = AIInterviewer()
+interview_result = await ai_interviewer.conduct_interview(interview_config)
+
+print(interview_result['evaluation'])
+`}
+/>
+
+## Technical Architecture
+
+<div className="grid md:grid-cols-3 gap-4">
+  <FuturisticCard>
+    <h3 className="text-lg font-bold mb-2">Skills Extraction</h3>
+    <p className="text-sm text-gray-400">
+      Uses NLTK, Rake, and custom NLP techniques to intelligently parse skills
+    </p>
+  </FuturisticCard>
+
+{" "}
+<FuturisticCard>
+  <h3 className="text-lg font-bold mb-2">Matching Engine</h3>
+  <p className="text-sm text-gray-400">
+    Hybrid approach with content-based and collaborative filtering
+  </p>
+</FuturisticCard>
+
+  <FuturisticCard>
+    <h3 className="text-lg font-bold mb-2">AI Interviewer</h3>
+    <p className="text-sm text-gray-400">
+      Generates context-aware questions and provides intelligent evaluation
+    </p>
+  </FuturisticCard>
+</div>
+
+## Getting Started
+
+To start using SJM AI, you'll need to:
+
+1. Install the SJM package
+2. Obtain an API key
+3. Configure your data source
+4. Start matching and interviewing
+
+<Link href="/docs/quickstart">
+  <FuturisticCard>
+    <h3 className="text-xl font-bold mb-2">Quick Start Guide →</h3>
+    <p className="text-gray-400">
+      Step-by-step instructions to integrate SJM AI into your workflow
+    </p>
+  </FuturisticCard>
+</Link>
+
+## Ecosystem and Integrations
+
+SJM AI is designed to be flexible and integrable:
+
+- REST API support
+- SDK for multiple languages (Node.js, Python)
+- Webhook and real-time event streaming
+- Database and CSV data source compatibility
+
+## Performance and Scalability
+
+- Process thousands of matches per second
+- Horizontal scaling support
+- Multi-environment configuration (test, development, production)
+- Advanced rate limiting and authentication
+
+## Security and Compliance
+
+- End-to-end encryption
+- Comprehensive rate limiting
+- Secure API key management
+- GDPR and data protection compliant

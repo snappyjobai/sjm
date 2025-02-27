@@ -1,0 +1,46 @@
+---
+title: "Best Practices"
+description: "SJM integration best practices and optimization tips"
+---
+
+# Best Practices
+
+<FuturisticCard>
+  Learn how to optimize your SJM integration for best performance and
+  reliability.
+</FuturisticCard>
+
+## API Usage Guidelines
+
+<CodeTabs tabs={{
+  "Rate Limiting": `// Implement exponential backoff
+const backoff = {
+  attempts: 3,
+  initialDelay: 1000,
+  maxDelay: 10000
+};`,
+  "Caching": `// Cache frequently used responses
+const cache = new Map();
+const TTL = 3600; // 1 hour
+
+async function getCachedResponse(key) {
+if (cache.has(key)) {
+return cache.get(key);
+}
+const result = await fetchData(key);
+cache.set(key, result);
+return result;
+}`
+}} />
+
+## Real-time Implementation
+
+<InteractiveDemo
+  title="WebSocket Connection"
+  description="Example of real-time connection handling"
+  initialCode={`const ws = new WebSocket('wss://api.sjm.dev/stream');
+ws.onmessage = (event) => {
+  const data = JSON.parse(event.data);
+  console.log('Received:', data);
+};`}
+/>

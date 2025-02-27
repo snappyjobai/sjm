@@ -1,0 +1,192 @@
+---
+title: "AI Interview System"
+description: "Automated technical interviews powered by AI"
+---
+
+# AI Interview System
+
+<FuturisticCard>
+  <div className="flex items-center justify-between">
+    <h2 className="text-2xl font-bold mb-2">Automated Technical Interviews</h2>
+    <div className="text-gray-400">
+      AI-powered interview generation and evaluation
+    </div>
+  </div>
+</FuturisticCard>
+
+## Interview Generation
+
+<CodeTabs
+  tabs={{
+    Python: `from sjm.ai import InterviewEngine
+
+engine = InterviewEngine()
+
+interview = engine.generate_interview({
+"role": "Senior React Developer",
+"required_skills": ["React", "TypeScript", "Redux"],
+"experience_level": "senior",
+"interview_duration": 60,
+"question_types": ["technical", "behavioral", "system_design"]
+})
+
+# Access questions
+
+for q in interview.questions:
+print("Question:", q.text)
+print("Rubric:", q.rubric)`,
+
+    NodeJS: `import { InterviewEngine } from '@sjm/client'
+
+const engine = new InterviewEngine()
+
+const interview = await engine.generateInterview({
+role: "Senior React Developer",
+requiredSkills: ["React", "TypeScript", "Redux"],
+experienceLevel: "senior",
+interviewDuration: 60,
+questionTypes: ["technical", "behavioral", "system_design"]
+})
+
+// Access questions
+interview.questions.forEach(q => {
+console.log("Question:", q.text)
+console.log("Rubric:", q.rubric)
+})`
+}}
+/>
+
+## Response Evaluation
+
+<CodeTabs
+  tabs={{
+    Python: `# Evaluate responses
+evaluation = engine.evaluate_responses({
+    "interview_id": interview.id,
+    "responses": {
+        "q1": "I have extensive experience with React hooks...",
+        "q2": "In my previous role, I implemented real-time...",
+        "q3": "For system design, I would approach it by..."
+    }
+})
+
+print("Technical Score:", evaluation.technical_score)
+print("Communication:", evaluation.communication_score)
+print("Overall:", evaluation.recommendation)`,
+
+    NodeJS: `// Evaluate responses
+
+const evaluation = await engine.evaluateResponses({
+interviewId: interview.id,
+responses: {
+q1: "I have extensive experience with React hooks...",
+q2: "In my previous role, I implemented real-time...",
+q3: "For system design, I would approach it by..."
+}
+})
+
+console.log("Technical Score:", evaluation.technicalScore)
+console.log("Communication:", evaluation.communicationScore)
+console.log("Overall:", evaluation.recommendation)`
+}}
+/>
+
+## Interview Types
+
+### Technical Assessment
+
+<CodeHighlight
+  code={`const technicalInterview = await engine.generateTechnicalInterview({
+  skills: ["React", "Node.js"],
+  levels: {
+    algorithmic: "medium",
+    systemDesign: "senior",
+    domainKnowledge: "expert"
+  },
+  format: "coding_challenge"
+})`}
+  language="javascript"
+/>
+
+### System Design
+
+<CodeHighlight
+  code={`const designInterview = await engine.generateSystemDesign({
+  scenario: "E-commerce Platform",
+  requirements: {
+    users: "1M daily active",
+    transactions: "100k per hour",
+    availability: "99.99%"
+  },
+  focus: ["scalability", "data_modeling", "api_design"]
+})`}
+  language="javascript"
+/>
+
+### Behavioral
+
+<CodeHighlight
+  code={`const behavioralInterview = await engine.generateBehavioral({
+  role: "Tech Lead",
+  teamSize: 5,
+  focusAreas: [
+    "leadership",
+    "conflict_resolution",
+    "project_management"
+  ]
+})`}
+  language="javascript"
+/>
+
+## Integration Example
+
+<InteractiveDemo
+  title="Complete Interview Flow"
+  description="Try out the complete interview process"
+  initialCode={`const engine = new InterviewEngine()
+
+// Generate interview
+const interview = await engine.generateInterview({
+role: "Senior Developer",
+skills: ["React", "Node.js", "AWS"],
+duration: 60
+})
+
+// Example responses
+const responses = {
+technical: "I would implement this using React hooks...",
+system: "The architecture would use microservices...",
+behavioral: "When facing team conflicts, I..."
+}
+
+// Get evaluation
+const result = await engine.evaluateComplete({
+interviewId: interview.id,
+responses: responses,
+candidateId: "c123"
+})
+
+console.log("Interview Results:", result)`}
+/>
+
+## Performance Metrics
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
+  <FuturisticCard>
+    <h3 className="text-lg font-bold">Interview Time</h3>
+    <div className="text-3xl font-bold text-accent">45m</div>
+    <div className="text-sm text-gray-400">Average duration</div>
+  </FuturisticCard>
+
+  <FuturisticCard>
+    <h3 className="text-lg font-bold">Accuracy</h3>
+    <div className="text-3xl font-bold text-accent">95%</div>
+    <div className="text-sm text-gray-400">Evaluation accuracy</div>
+  </FuturisticCard>
+
+  <FuturisticCard>
+    <h3 className="text-lg font-bold">Coverage</h3>
+    <div className="text-3xl font-bold text-accent">50+</div>
+    <div className="text-sm text-gray-400">Skills evaluated</div>
+  </FuturisticCard>
+</div>

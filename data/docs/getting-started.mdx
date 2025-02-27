@@ -1,0 +1,64 @@
+---
+title: "Getting Started"
+description: "Installation & Quickstart Guide for SJM"
+---
+
+# Getting Started with SJM
+
+<FuturisticCard>
+  <div className="flex items-center gap-2">
+    Get SDK Tools
+    <FiArrowRight className="inline-block" />
+  </div>
+</FuturisticCard>
+
+## Quick Setup
+
+<CodeTabs
+  tabs={{
+    Node: "npm install @sjm/client-sdk",
+    Python: "pip install sjm-client",
+    REST: "# No installation needed; use your API key in requests",
+  }}
+/>
+
+## Basic Integration
+
+<FeaturedExample
+  title="Simple Matching Query"
+  description="Use the SDK to find matching freelancers."
+  code={{
+    node: `import { SJMClient } from '@sjm/client-sdk';
+
+const client = new SJMClient({ apiKey: process.env.SJM_API_KEY });
+const matches = await client.match({
+projectDescription: "Build a React Native app",
+requiredSkills: ["React Native", "JavaScript"],
+budget: { min: 1000, max: 5000 }
+});
+console.log(matches);`,
+    python: `from sjm_client import Client
+
+client = Client(api_key=os.getenv("SJM_API_KEY"))
+matches = client.match(
+project_description="Build a React Native app",
+required_skills=["React Native", "JavaScript"],
+budget={"min": 1000, "max": 5000}
+)
+print(matches)`,
+    rest: `curl -X POST https://api.sjm.dev/v1/match \\
+-H "Authorization: Bearer YOUR_API_KEY" \\
+-H "Content-Type: application/json" \\
+-d '{
+"projectDescription": "Build a React Native app",
+"requiredSkills": ["React Native", "JavaScript"],
+"budget": { "min": 1000, "max": 5000 }
+}'`
+}}
+/>
+
+## Next Steps
+
+- [API Overview](/docs/api/overview)
+- [Authentication Guide](/docs/api/authentication)
+- [SDK Documentation](/docs/sdk/node)

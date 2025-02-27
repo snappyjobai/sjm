@@ -1,0 +1,104 @@
+@import "./docs.css";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Rest of global styles */
+:root {
+  --sjm-font: Arial, sans-serif;
+  --accent-rgb: 124, 58, 237;
+  --primary-rgb: 17, 24, 39;
+}
+
+/* Base styles */
+@layer base {
+  body {
+    @apply bg-primary text-white min-h-screen font-primary;
+    background-image: radial-gradient(
+        circle at center,
+        rgba(var(--accent-rgb), 0.1) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(var(--primary-rgb), 1),
+        rgba(var(--primary-rgb), 0.95)
+      );
+    background-size: 20px 20px, 100% 100%;
+  }
+
+  .doc-layout {
+    @apply grid gap-8;
+    grid-template-columns: 16rem minmax(0, 1fr);
+  }
+
+  .doc-content {
+    @apply max-w-3xl mx-auto px-8 py-12;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-heading;
+}
+
+.subtext {
+  @apply font-subtext;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.snap-y {
+  scroll-snap-type: y mandatory;
+}
+
+.snap-start {
+  scroll-snap-align: start;
+}
+
+.doc-nav {
+  position: sticky;
+  top: 4rem;
+  height: calc(100vh - 4rem);
+  overflow-y: auto;
+  padding: 2rem 0;
+}
+
+/* Auth page specific styles */
+.auth-gradient {
+  background: linear-gradient(
+    125deg,
+    rgba(56, 189, 248, 0.1),
+    rgba(251, 113, 133, 0.1),
+    rgba(163, 230, 53, 0.1)
+  );
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.animate-gradient {
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
