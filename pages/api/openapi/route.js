@@ -4,7 +4,7 @@ export async function GET() {
   const openApiSpec = {
     openapi: "3.0.0",
     info: {
-      title: "SJM API Documentation",
+      title: "Snapjobs API Documentation",
       version: "1.0.0",
       description: "Enterprise-grade AI-powered talent matching system",
     },

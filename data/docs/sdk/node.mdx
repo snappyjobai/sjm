@@ -1,6 +1,6 @@
 ---
 title: "Node.js SDK"
-description: "Complete guide to using SJM with Node.js"
+description: "Complete guide to using Snapjobs with Node.js"
 ---
 
 # Node.js SDK Reference
@@ -20,20 +20,20 @@ description: "Complete guide to using SJM with Node.js"
 
 <CodeTabs
   tabs={{
-    npm: "npm install @sjm/client",
-    yarn: "yarn add @sjm/client",
-    pnpm: "pnpm add @sjm/client",
+    npm: "npm install @Snapjobs/client",
+    yarn: "yarn add @Snapjobs/client",
+    pnpm: "pnpm add @Snapjobs/client",
   }}
 />
 
 ## Quick Setup
 
 <CodeHighlight
-  code={`import { SJMClient } from '@sjm/client';
+  code={`import { SnapjobsClient } from '@Snapjobs/client';
 
 // Initialize client
-const client = new SJMClient({
-apiKey: process.env.SJM_API_KEY,
+const client = new SnapjobsClient({
+apiKey: process.env.Snapjobs_API_KEY,
 environment: 'production'
 });`}
 language="javascript"
@@ -109,10 +109,10 @@ language="javascript"
     description: "React developer"
   });
 } catch (error) {
-  if (error instanceof SJMRateLimitError) {
+  if (error instanceof SnapjobsRateLimitError) {
     // Handle rate limiting
     await sleep(error.retryAfter);
-  } else if (error instanceof SJMValidationError) {
+  } else if (error instanceof SnapjobsValidationError) {
     // Handle validation errors
     console.error(error.details);
   }
@@ -124,11 +124,11 @@ language="javascript"
 
 <CodeHighlight
   code={`import { 
-  SJMClient, 
+  SnapjobsClient, 
   MatchOptions, 
   SkillVerification,
   MatchResult
-} from '@sjm/client';
+} from '@Snapjobs/client';
 
 const options: MatchOptions = {
 description: string;
@@ -147,10 +147,10 @@ language="typescript"
 <InteractiveDemo
   title="Complete Integration"
   description="Try out a full integration example"
-  initialCode={`import { SJMClient } from '@sjm/client';
+  initialCode={`import { SnapjobsClient } from '@Snapjobs/client';
 
 // Initialize client
-const client = new SJMClient({
+const client = new SnapjobsClient({
 apiKey: 'demo-key'
 });
 

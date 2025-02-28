@@ -7,7 +7,7 @@ export default function InterviewDemo({ isOpen, onClose }) {
     {
       type: "bot",
       content:
-        "Hi! I'm SJM AI. I can help evaluate your skills or find the perfect freelancer from our test database of 500 professionals. What would you like to do?",
+        "Hi! I'm Snapjobs AI. I can help evaluate your skills or find the perfect freelancer from our test database of 500 professionals. What would you like to do?",
       options: ["Test Interview", "Find Freelancer"],
     },
   ]);
@@ -49,7 +49,7 @@ export default function InterviewDemo({ isOpen, onClose }) {
         >
           {/* Header */}
           <div className="p-4 bg-accent/10 border-b border-accent/20 flex justify-between items-center">
-            <h3 className="text-lg font-medium text-accent">SJM AI Demo</h3>
+            <h3 className="text-lg font-medium text-accent">Snapjobs AI Demo</h3>
             <button
               onClick={onClose}
               className="text-gray-400 hover:text-white"

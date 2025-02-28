@@ -14,7 +14,7 @@ export default function Community() {
       name: "Discord",
       icon: IoLogoDiscord,
       color: "from-[#5865F2] to-[#7289DA]",
-      link: "https://discord.gg/sjm-community",
+      link: "https://discord.gg/Snapjobs-community",
       description:
         "Join our developer community for real-time support and discussions",
     },
@@ -36,25 +36,25 @@ export default function Community() {
       name: "Email",
       icon: IoMail,
       color: "from-accent to-accent-dark",
-      link: "mailto:support@sjm.dev",
+      link: "mailto:support@Snapjobs.dev",
       description: "Reach out for enterprise support",
     },
   ];
 
   const faqs = [
     {
-      question: "How quickly can I integrate SJM into my platform?",
+      question: "How quickly can I integrate Snapjobs into my platform?",
       answer:
         "With our comprehensive SDK and documentation, most platforms achieve full integration within 2-3 days. Our support team is available to assist throughout the process.",
     },
     {
       question:
-        "What makes SJM's AI matching better than traditional algorithms?",
+        "What makes Snapjobs's AI matching better than traditional algorithms?",
       answer:
-        "SJM combines multiple AI models (GPT-4, Claude) with traditional algorithms, achieving 98% matching accuracy. We analyze context, experience, and potential beyond simple keyword matching.",
+        "Snapjobs combines multiple AI models (GPT-4, Claude) with traditional algorithms, achieving 98% matching accuracy. We analyze context, experience, and potential beyond simple keyword matching.",
     },
     {
-      question: "Can SJM handle high-volume requests?",
+      question: "Can Snapjobs handle high-volume requests?",
       answer:
         "Absolutely! Our system is built for enterprise scale, processing 1000+ requests per second with 99.9% uptime and consistent response times under 200ms.",
     },

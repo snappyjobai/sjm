@@ -37,7 +37,7 @@ export default function DocsLayout({ children }) {
                 {isMobileNavOpen ? <FiX size={20} /> : <FiMenu size={20} />}
               </button>
               <Link href="/docs" className="text-xl font-bold text-white ml-3">
-                SJM Docs
+                Snapjobs Docs
               </Link>
             </div>
 

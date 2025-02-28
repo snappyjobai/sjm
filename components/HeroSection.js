@@ -18,7 +18,7 @@ const HeroSection = () => {
           animate={{ scale: 1 }}
           transition={{ delay: 0.2 }}
         >
-          Snappy Job Model (SJM)
+          Snap Jobs AI
         </motion.h1>
         <motion.p
           className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto"

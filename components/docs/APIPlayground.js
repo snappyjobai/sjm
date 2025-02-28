@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect, useMemo } from "react";
 import { FiPlay, FiSave, FiCopy, FiRefreshCw } from "react-icons/fi";
 
-export default function SJMAPIPlayground() {
+export default function SnapjobsAPIPlayground() {
   // Add endpoint selection
   const [selectedEndpoint, setSelectedEndpoint] = useState("match");
 
@@ -40,7 +40,7 @@ export default function SJMAPIPlayground() {
 
   // Update param JSON when endpoint changes
   useEffect(() => {
-    const savedParams = localStorage.getItem(`sjm_${selectedEndpoint}_params`);
+    const savedParams = localStorage.getItem(`Snapjobs_${selectedEndpoint}_params`);
     if (savedParams) {
       setParamJson(savedParams);
     } else {
@@ -55,7 +55,7 @@ export default function SJMAPIPlayground() {
     try {
       // Validate JSON before saving
       JSON.parse(paramJson);
-      localStorage.setItem(`sjm_${selectedEndpoint}_params`, paramJson);
+      localStorage.setItem(`Snapjobs_${selectedEndpoint}_params`, paramJson);
       setError(null);
       alert("Parameters saved!");
     } catch (e) {
@@ -115,7 +115,7 @@ export default function SJMAPIPlayground() {
   return (
     <div className="border border-accent/20 rounded-lg overflow-hidden">
       <div className="bg-accent/10 p-4 flex items-center justify-between flex-wrap gap-2">
-        <h3 className="text-lg font-medium text-white">SJM API Playground</h3>
+        <h3 className="text-lg font-medium text-white">Snapjobs API Playground</h3>
 
         <div className="flex gap-2 items-center flex-wrap">
           <select

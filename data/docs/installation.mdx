@@ -1,16 +1,16 @@
 ---
 title: "Installation Guide"
-description: "Complete guide to installing and configuring SJM"
+description: "Complete guide to installing and configuring Snapjobs"
 ---
 
-# Installing SJM
+# Installing Snapjobs
 
 <FuturisticCard>
   <div className="flex items-center justify-between">
     <div>
       <h2 className="text-2xl font-bold mb-2">Installation Guide</h2>
       <p className="text-gray-400">
-        Get started with SJM in your preferred environment
+        Get started with Snapjobs in your preferred environment
       </p>
     </div>
   </div>
@@ -21,35 +21,35 @@ description: "Complete guide to installing and configuring SJM"
 <CodeTabs
   tabs={{
     "Python": `# Using pip
-pip install sjm
+pip install Snapjobs
 
 # Using poetry
 
-poetry add sjm-ai
+poetry add Snapjobs-ai
 
 # Using conda
 
-conda install -c sjm sjm-ai`,
+conda install -c Snapjobs Snapjobs-ai`,
     "Node.js": `# Using npm
-npm install @sjm/client
+npm install @Snapjobs/client
 
 # Using yarn
 
-yarn add @sjm/client
+yarn add @Snapjobs/client
 
 # Using pnpm
 
-pnpm add @sjm/client`,
-    "Docker": `# Pull the SJM server image
-docker pull sjm/server:latest
+pnpm add @Snapjobs/client`,
+    "Docker": `# Pull the Snapjobs server image
+docker pull Snapjobs/server:latest
 
 # Run with environment variables
 
 docker run -d \\
--e SJM_API_KEY=your_api_key \\
--e SJM_ENVIRONMENT=production \\
+-e Snapjobs_API_KEY=your_api_key \\
+-e Snapjobs_ENVIRONMENT=production \\
 -p 3000:3000 \\
-sjm/server`
+Snapjobs/server`
 }}
 />
 
@@ -59,11 +59,11 @@ sjm/server`
 
 <CodeTabs
   tabs={{
-    ".env": `SJM_API_KEY=your_api_key
-SJM_ENVIRONMENT=production
-SJM_TIMEOUT=30000
-SJM_MAX_RETRIES=3
-SJM_DEBUG=false`,
+    ".env": `Snapjobs_API_KEY=your_api_key
+Snapjobs_ENVIRONMENT=production
+Snapjobs_TIMEOUT=30000
+Snapjobs_MAX_RETRIES=3
+Snapjobs_DEBUG=false`,
     "config.json": `{
   "apiKey": "your_api_key",
   "environment": "production",
@@ -71,7 +71,7 @@ SJM_DEBUG=false`,
   "maxRetries": 3,
   "debug": false
 }`,
-    yaml: `sjm:
+    yaml: `Snapjobs:
   api_key: your_api_key
   environment: production
   timeout: 30000
@@ -84,13 +84,13 @@ SJM_DEBUG=false`,
 
 <CodeTabs
   tabs={{
-    "Python": `from install sjm import MatchingEngine
+    "Python": `from install Snapjobs import MatchingEngine
 import os
 
 # Using environment variables
 
 engine = MatchingEngine(
-api_key=os.getenv('SJM_API_KEY'),
+api_key=os.getenv('Snapjobs_API_KEY'),
 environment='production'
 )
 
@@ -101,15 +101,15 @@ api_key='your_api_key',
 environment='production',
 timeout=30000
 )`,
-    "Node.js": `import { SJMClient } from '@sjm/client';
+    "Node.js": `import { SnapjobsClient } from '@Snapjobs/client';
 
 // Using environment variables
-const client = new SJMClient({
-apiKey: process.env.SJM_API_KEY
+const client = new SnapjobsClient({
+apiKey: process.env.Snapjobs_API_KEY
 });
 
 // Or using direct configuration
-const client = new SJMClient({
+const client = new SnapjobsClient({
 apiKey: 'your_api_key',
 environment: 'production',
 timeout: 30000
@@ -154,10 +154,10 @@ timeout: 30000
 
 <InteractiveDemo
   title="Test Your Installation"
-  description="Verify your SJM installation is working correctly"
+  description="Verify your Snapjobs installation is working correctly"
   initialCode={`// Initialize the client
-const client = new SJMClient({
-  apiKey: process.env.SJM_API_KEY
+const client = new SnapjobsClient({
+  apiKey: process.env.Snapjobs_API_KEY
 });
 
 // Test connection
@@ -178,12 +178,12 @@ console.log('Extracted skills:', skills);`}
     title="API Key Issues"
     description="Troubleshoot API key configuration problems"
     code={`// Check if API key is properly set
-if (!process.env.SJM_API_KEY) {
-  throw new Error('SJM_API_KEY not found in environment');
+if (!process.env.Snapjobs_API_KEY) {
+  throw new Error('Snapjobs_API_KEY not found in environment');
 }
 
 // Verify API key format
-if (!/^sjm\_[a-zA-Z0-9]{32}$/.test(process.env.SJM_API_KEY)) {
+if (!/^Snapjobs\_[a-zA-Z0-9]{32}$/.test(process.env.Snapjobs_API_KEY)) {
 throw new Error('Invalid API key format');
 }`}
 />

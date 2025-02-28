@@ -1,7 +1,7 @@
 import { motion, useScroll } from "framer-motion";
 import { useRef } from "react";
 
-const SjmProject = () => {
+const SnapjobsProject = () => {
   const containerRef = useRef(null);
   const { scrollY } = useScroll();
 
@@ -14,22 +14,22 @@ const SjmProject = () => {
     {
       title: "Technical Innovation",
       content:
-        "We built SJM from the ground up using cutting-edge AI technologies. Our hybrid matching engine combines collaborative filtering with content-based analysis, while our interview system leverages the latest in language models (GPT-4 and Claude) for unprecedented accuracy in technical assessment.",
+        "We built Snapjobs from the ground up using cutting-edge AI technologies. Our hybrid matching engine combines collaborative filtering with content-based analysis, while our interview system leverages the latest in language models (GPT-4 and Claude) for unprecedented accuracy in technical assessment.",
     },
     {
       title: "Enterprise Focus",
       content:
-        "While others focus on individual freelancers, we've built SJM specifically for businesses. Our system processes 1000 requests per second with 95% match accuracy, making it perfect for high-volume platforms and enterprise hiring systems.",
+        "While others focus on individual freelancers, we've built Snapjobs specifically for businesses. Our system processes 1000 requests per second with 95% match accuracy, making it perfect for high-volume platforms and enterprise hiring systems.",
     },
     {
       title: "Integration & Customization",
       content:
-        "We understand that every platform is unique. That's why we've made SJM highly customizable, offering multiple integration options:\n- PyPI package for direct implementation\n- REST API for seamless integration\n- White-label solutions for complete brand control\n- Custom deployments for specific needs",
+        "We understand that every platform is unique. That's why we've made Snapjobs highly customizable, offering multiple integration options:\n- PyPI package for direct implementation\n- REST API for seamless integration\n- White-label solutions for complete brand control\n- Custom deployments for specific needs",
     },
     {
       title: "Looking Forward",
       content:
-        "We're continuously evolving SJM, incorporating new AI models and optimization techniques. Our commitment is to keep pushing the boundaries of what's possible in talent matching, making the hiring process faster, more accurate, and more efficient for platforms worldwide.",
+        "We're continuously evolving Snapjobs, incorporating new AI models and optimization techniques. Our commitment is to keep pushing the boundaries of what's possible in talent matching, making the hiring process faster, more accurate, and more efficient for platforms worldwide.",
     },
   ];
 
@@ -46,7 +46,7 @@ const SjmProject = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
-        SJM: The Project
+        Snapjobs: The Project
       </motion.h2>
 
       <div className="space-y-32">
@@ -116,4 +116,4 @@ const SjmProject = () => {
   );
 };
 
-export default SjmProject;
+export default SnapjobsProject;

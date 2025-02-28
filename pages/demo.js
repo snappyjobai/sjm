@@ -13,7 +13,7 @@ export default function Demo() {
       title: "Upwork Integration",
       videoUrl: "/videos/Upwork_demo.mp4",
       description:
-        "Experience how SJM transforms Upwork's talent matching with instant AI-powered connections. Watch freelancers get matched to perfect projects in seconds instead of days.",
+        "Experience how Snapjobs transforms Upwork's talent matching with instant AI-powered connections. Watch freelancers get matched to perfect projects in seconds instead of days.",
       liveUrl: "/demos/upwork",
       techStack: ["Node.js", "React", "MongoDB", "GPT-4"],
       metrics: {
@@ -26,7 +26,7 @@ export default function Demo() {
       title: "Fiverr Enhancement",
       videoUrl: "/videos/Fiverr_demo.mp4",
       description:
-        "See how SJM elevates Fiverr's marketplace with intelligent project-talent matching. Our AI ensures every connection is meaningful and high-potential.",
+        "See how Snapjobs elevates Fiverr's marketplace with intelligent project-talent matching. Our AI ensures every connection is meaningful and high-potential.",
       liveUrl: "/demos/fiverr",
       techStack: ["Python", "Vue.js", "PostgreSQL", "Claude-3"],
       metrics: {
@@ -55,7 +55,7 @@ export default function Demo() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              See SJM in Action
+              See Snapjobs in Action
             </motion.span>
           </h1>
           <motion.p
@@ -85,7 +85,7 @@ export default function Demo() {
               Try Our AI in Action
             </h2>
             <p className="text-xl text-gray-300 mb-8">
-              Experience SJM&apos;s AI capabilities firsthand. Test our
+              Experience Snapjobs&apos;s AI capabilities firsthand. Test our
               interview system or search through our database of 500 test
               freelancers.
             </p>
@@ -118,8 +118,8 @@ export default function Demo() {
             Ready to Transform Your Platform?
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Join the future of talent matching. Integrate SJM into your platform
-            today.
+            Join the future of talent matching. Integrate Snapjobs into your
+            platform today.
           </p>
           <Link
             href="/pricing"

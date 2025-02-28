@@ -1,31 +1,31 @@
 ---
 title: "Client API Reference"
-description: "Complete reference for the SJM client SDKs"
+description: "Complete reference for the Snapjobs client SDKs"
 ---
 
 # Client SDK Reference
 
 <FuturisticCard>
-  Comprehensive documentation for SJM's client libraries and API endpoints.
+  Comprehensive documentation for Snapjobs's client libraries and API endpoints.
 </FuturisticCard>
 
 ## Installation
 
 <CodeTabs
   tabs={{
-    npm: "npm install @sjm/client",
-    yarn: "yarn add @sjm/client",
-    pip: "pip install sjm-client",
+    npm: "npm install @Snapjobs/client",
+    yarn: "yarn add @Snapjobs/client",
+    pip: "pip install Snapjobs-client",
   }}
 />
 
 ## Client Configuration
 
 <CodeHighlight
-  code={`import { SJMClient } from '@sjm/client';
+  code={`import { SnapjobsClient } from '@Snapjobs/client';
 
-const client = new SJMClient({
-apiKey: process.env.SJM_API_KEY,
+const client = new SnapjobsClient({
+apiKey: process.env.Snapjobs_API_KEY,
 environment: 'production', // or 'staging'
 timeout: 30000, // 30 seconds
 retries: 3

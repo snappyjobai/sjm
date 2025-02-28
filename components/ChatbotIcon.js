@@ -35,20 +35,20 @@ const ChatbotIcon = ({ onOpen }) => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          Test SJM AI
+          Test Snapjobs AI
         </motion.div>
       )}
     </motion.div>
   );
 };
 
-// Main SJM Test Chatbot Component
-const SJMTestChatbot = ({ onClose, isOpen }) => {
+// Main Snapjobs Test Chatbot Component
+const SnapjobsTestChatbot = ({ onClose, isOpen }) => {
   const [messages, setMessages] = useState([
     {
       id: 1,
       type: "bot",
-      text: "Hi there! 👋 I'm your SJM-powered talent matching assistant. I can help you find the perfect freelancers for your projects, verify skills, and even conduct automated interviews. What would you like to do today?",
+      text: "Hi there! 👋 I'm your Snapjobs-powered talent matching assistant. I can help you find the perfect freelancers for your projects, verify skills, and even conduct automated interviews. What would you like to do today?",
       suggestions: [
         "Find freelancers for my project",
         "Check if a skill is in demand",
@@ -77,7 +77,7 @@ const SJMTestChatbot = ({ onClose, isOpen }) => {
 
   // Store API key
   useEffect(() => {
-    const envApiKey = process.env.NEXT_PUBLIC_SJM_API_KEY;
+    const envApiKey = process.env.NEXT_PUBLIC_Snapjobs_API_KEY;
     setApiKey(envApiKey);
   }, []);
 
@@ -165,7 +165,7 @@ const SJMTestChatbot = ({ onClose, isOpen }) => {
           {
             id: prev.length + 2,
             type: "bot",
-            text: "I'm your talent matching assistant powered by SJM AI. How can I help with your project today?",
+            text: "I'm your talent matching assistant powered by Snapjobs AI. How can I help with your project today?",
             suggestions: [
               "Find freelancers for my project",
               "Create a new project",
@@ -1334,7 +1334,7 @@ Would you like to see freelancers with ${report.name} expertise?`;
           <div className="bg-accent p-4 rounded-t-xl flex justify-between items-center">
             <div className="flex items-center">
               <IoMdChatbubbles className="w-6 h-6 text-white mr-2" />
-              <h3 className="text-white font-medium">SJM Talent Match</h3>
+              <h3 className="text-white font-medium">Snapjobs Talent Match</h3>
             </div>
             <button
               onClick={onClose}
@@ -1696,7 +1696,7 @@ Would you like to see freelancers with ${report.name} expertise?`;
               </button>
             </div>
             <div className="mt-2 flex justify-between text-xs text-gray-500">
-              <span>Powered by SJM AI</span>
+              <span>Powered by Snapjobs AI</span>
               <span>Press Enter to send</span>
             </div>
             <div className="mt-1 flex justify-center gap-4">
@@ -1726,15 +1726,15 @@ Would you like to see freelancers with ${report.name} expertise?`;
   );
 };
 
-const SJMTestWidget = () => {
+const SnapjobsTestWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <ChatbotIcon onOpen={() => setIsOpen(true)} />
-      <SJMTestChatbot isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <SnapjobsTestChatbot isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </>
   );
 };
 
-export { ChatbotIcon, SJMTestChatbot, SJMTestWidget };
+export { ChatbotIcon, SnapjobsTestChatbot, SnapjobsTestWidget };

@@ -21,10 +21,10 @@ const SandboxPage = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white font-primary">
       <Head>
-        <title>API Sandbox | SJM.AI</title>
+        <title>API Sandbox | Snapjobsai.AI</title>
         <meta
           name="description"
-          content="Test the SJM API directly in your browser with our interactive sandbox"
+          content="Test the Snapjobs API directly in your browser with our interactive sandbox"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -45,7 +45,7 @@ const SandboxPage = () => {
         <div className="container mx-auto px-4">
           <SectionHeading
             title="API Documentation"
-            subtitle="Comprehensive guides to integrate SJM into your applications"
+            subtitle="Comprehensive guides to integrate Snapjobs into your applications"
           />
           <APIDocumentation />
         </div>
@@ -56,7 +56,7 @@ const SandboxPage = () => {
         <div className="container mx-auto px-4">
           <SectionHeading
             title="Interactive Demos"
-            subtitle="See SJM in action with our pre-built integrations"
+            subtitle="See Snapjobs in action with our pre-built integrations"
           />
           <DemoSection />
         </div>
@@ -606,7 +606,7 @@ const APIDocumentation = () => {
     {
       title: "Getting Started",
       icon: <FiPlay className="w-8 h-8" />,
-      description: "Quick introduction to SJM API and authentication",
+      description: "Quick introduction to Snapjobs API and authentication",
       link: "/docs/getting-started",
     },
     {
@@ -657,7 +657,7 @@ const DemoSection = () => {
     {
       title: "Upwork Integration",
       description:
-        "See how SJM integrates with Upwork to find the perfect freelancers",
+        "See how Snapjobs integrates with Upwork to find the perfect freelancers",
       image: "/imgs/demo-upwork.jpg",
       link: "/demos/upwork",
     },

@@ -1,15 +1,15 @@
 ---
-title: "SJM Core Classes"
-description: "Complete reference for SJM's core classes and their usage"
+title: "Snapjobs Core Classes"
+description: "Complete reference for Snapjobs's core classes and their usage"
 ---
 
 # Core Classes Reference
 
 <FuturisticCard>
   <div className="flex items-center justify-between">
-    <h2 className="text-2xl font-bold mb-2">SJM Core Classes</h2>
+    <h2 className="text-2xl font-bold mb-2">Snapjobs Core Classes</h2>
     <div className="text-gray-400">
-      Comprehensive guide to SJM's main components
+      Comprehensive guide to Snapjobs's main components
     </div>
   </div>
 </FuturisticCard>
@@ -20,7 +20,7 @@ The primary class for handling talent matching operations.
 
 <CodeTabs
   tabs={{
-    "Python": `from sjm import MatchingEngine
+    "Python": `from Snapjobs import MatchingEngine
 
 engine = MatchingEngine(api_key="your_key")
 
@@ -42,7 +42,7 @@ weights={
 "communication": 0.1
 }
 )`,
-    "Node.js": `import { MatchingEngine } from '@sjm/client';
+    "Node.js": `import { MatchingEngine } from '@Snapjobs/client';
 
 const engine = new MatchingEngine({
 apiKey: 'your_key'
@@ -73,7 +73,7 @@ Handles skill extraction and analysis from text.
 
 <CodeTabs
   tabs={{
-    "Python": `from sjm import SkillsAnalyzer
+    "Python": `from Snapjobs import SkillsAnalyzer
 
 analyzer = SkillsAnalyzer(api_key="your_key")
 
@@ -93,7 +93,7 @@ context="web development"
 # Get skill relationships
 
 related = analyzer.get_related_skills("react", limit=5)`,
-    "Node.js": `import { SkillsAnalyzer } from '@sjm/client';
+    "Node.js": `import { SkillsAnalyzer } from '@Snapjobs/client';
 
 const analyzer = new SkillsAnalyzer({
 apiKey: 'your_key'
@@ -121,7 +121,7 @@ Manages AI-powered technical interview generation and evaluation.
 
 <CodeTabs
   tabs={{
-    "Python": `from sjm import InterviewGenerator
+    "Python": `from Snapjobs import InterviewGenerator
 
 generator = InterviewGenerator(api_key="your_key")
 
@@ -142,7 +142,7 @@ responses={
 "q2": "I've built several microservices using Node.js..."
 }
 )`,
-    "Node.js": `import { InterviewGenerator } from '@sjm/client';
+    "Node.js": `import { InterviewGenerator } from '@Snapjobs/client';
 
 const generator = new InterviewGenerator({
 apiKey: 'your_key'
@@ -172,7 +172,7 @@ Enhances and validates freelancer profiles.
 
 <CodeTabs
   tabs={{
-    "Python": `from sjm import ProfileEnricher
+    "Python": `from Snapjobs import ProfileEnricher
 
 enricher = ProfileEnricher(api_key="your_key")
 
@@ -197,7 +197,7 @@ validation = enricher.validate_experience(
 claims=["Built an e-commerce platform with React"],
 skills=["React", "E-commerce"]
 )`,
-    "Node.js": `import { ProfileEnricher } from '@sjm/client';
+    "Node.js": `import { ProfileEnricher } from '@Snapjobs/client';
 
 const enricher = new ProfileEnricher({
 apiKey: 'your_key'

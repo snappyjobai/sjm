@@ -1,9 +1,9 @@
 ---
 title: "Getting Started"
-description: "Installation & Quickstart Guide for SJM"
+description: "Installation & Quickstart Guide for Snapjobs"
 ---
 
-# Getting Started with SJM
+# Getting Started with Snapjobs
 
 <FuturisticCard>
   <div className="flex items-center gap-2">
@@ -16,8 +16,8 @@ description: "Installation & Quickstart Guide for SJM"
 
 <CodeTabs
   tabs={{
-    Node: "npm install @sjm/client-sdk",
-    Python: "pip install sjm-client",
+    Node: "npm install @Snapjobs/client-sdk",
+    Python: "pip install Snapjobs-client",
     REST: "# No installation needed; use your API key in requests",
   }}
 />
@@ -28,25 +28,25 @@ description: "Installation & Quickstart Guide for SJM"
   title="Simple Matching Query"
   description="Use the SDK to find matching freelancers."
   code={{
-    node: `import { SJMClient } from '@sjm/client-sdk';
+    node: `import { SnapjobsClient } from '@Snapjobs/client-sdk';
 
-const client = new SJMClient({ apiKey: process.env.SJM_API_KEY });
+const client = new SnapjobsClient({ apiKey: process.env.Snapjobs_API_KEY });
 const matches = await client.match({
 projectDescription: "Build a React Native app",
 requiredSkills: ["React Native", "JavaScript"],
 budget: { min: 1000, max: 5000 }
 });
 console.log(matches);`,
-    python: `from sjm_client import Client
+    python: `from Snapjobs_client import Client
 
-client = Client(api_key=os.getenv("SJM_API_KEY"))
+client = Client(api_key=os.getenv("Snapjobs_API_KEY"))
 matches = client.match(
 project_description="Build a React Native app",
 required_skills=["React Native", "JavaScript"],
 budget={"min": 1000, "max": 5000}
 )
 print(matches)`,
-    rest: `curl -X POST https://api.sjm.dev/v1/match \\
+    rest: `curl -X POST https://api.Snapjobs.dev/v1/match \\
 -H "Authorization: Bearer YOUR_API_KEY" \\
 -H "Content-Type: application/json" \\
 -d '{

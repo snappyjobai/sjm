@@ -17,14 +17,14 @@ export default function Home() {
       src: "/videos/Upwork_demo.mp4",
       title: "Upwork has a faster uptime!",
       description:
-        "While established platforms like Upwork connect millions globally, their matching process often takes days. Enter SJM - transforming the waiting game into instant connections. Experience how our AI-powered platform reduces days of searching to mere minutes, revolutionizing the way talent meets opportunity.",
+        "While established platforms like Upwork connect millions globally, their matching process often takes days. Enter Snapjobs - transforming the waiting game into instant connections. Experience how our AI-powered platform reduces days of searching to mere minutes, revolutionizing the way talent meets opportunity.",
       demoLink: "#",
     },
     {
       src: "/videos/Fiverr_demo.mp4",
       title: "Fiverr historic beginning transiting into faster hiring",
       description:
-        "Fiverr has been a go-to platform for freelancers and clients alike. However, their hiring process can be time-consuming. SJM is here to change that. Watch how our AI-powered platform matches clients with freelancers in a snap, making the hiring process faster and more efficient.",
+        "Fiverr has been a go-to platform for freelancers and clients alike. However, their hiring process can be time-consuming. Snapjobs is here to change that. Watch how our AI-powered platform matches clients with freelancers in a snap, making the hiring process faster and more efficient.",
       demoLink: "#",
     },
   ];

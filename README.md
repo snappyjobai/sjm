@@ -1,4 +1,4 @@
-# SJM Talent Matching Platform
+# Snapjobs Talent Matching Platform
 
 A Next.js application for AI-powered talent matching and freelancer interviews.
 

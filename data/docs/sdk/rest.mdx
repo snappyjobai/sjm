@@ -1,6 +1,6 @@
 ---
 title: "REST API Reference"
-description: "Complete guide to using SJM's REST API endpoints"
+description: "Complete guide to using Snapjobs's REST API endpoints"
 ---
 
 # REST API Documentation
@@ -19,7 +19,7 @@ description: "Complete guide to using SJM's REST API endpoints"
 All API requests require authentication using your API key in the headers:
 
 <CodeHighlight
-  code={`curl -X POST https://api.sjm.dev/v1/match \
+  code={`curl -X POST https://api.Snapjobs.dev/v1/match \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json"`}
   language="bash"
@@ -99,7 +99,7 @@ Authorization: Bearer YOUR_API_KEY
 
 <CodeHighlight
   code={`// Initialize WebSocket connection
-const ws = new WebSocket('wss://api.sjm.dev/v1/ws');
+const ws = new WebSocket('wss://api.Snapjobs.dev/v1/ws');
 
 // Authentication
 ws.send(JSON.stringify({

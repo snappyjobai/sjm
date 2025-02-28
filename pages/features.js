@@ -8,7 +8,7 @@ export default function Features() {
       description: "Built for businesses, not just job seekers",
       icon: "🏢",
       fullText:
-        "Unlike mass-application tools, SJM is a comprehensive B2B solution offering full API integration, white-labeling options, and industry-specific adaptability. Perfect for platforms like Upwork, Fiverr, or corporate hiring systems.",
+        "Unlike mass-application tools, Snapjobs is a comprehensive B2B solution offering full API integration, white-labeling options, and industry-specific adaptability. Perfect for platforms like Upwork, Fiverr, or corporate hiring systems.",
       actionButtons: ["API Docs", "Integration Guide"],
     },
     {
@@ -32,7 +32,7 @@ export default function Features() {
       description: "Tailor the system to your industry needs",
       icon: "🎨",
       fullText:
-        "Adjust AI scoring weights, integrate via flexible APIs, and maintain your brand identity with white-labeling. SJM adapts to your business, not the other way around.",
+        "Adjust AI scoring weights, integrate via flexible APIs, and maintain your brand identity with white-labeling. Snapjobs adapts to your business, not the other way around.",
       actionButtons: ["Customization Guide", "Integration Options"],
     },
   ];

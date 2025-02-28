@@ -1,12 +1,12 @@
 ---
 title: "Quick Start"
-description: "Get started with SJM in minutes"
+description: "Get started with Snapjobs in minutes"
 ---
 
 # Quick Start Guide
 
 <FuturisticCard>
-  Learn how to integrate SJM into your project and start matching freelancers in
+  Learn how to integrate Snapjobs into your project and start matching freelancers in
   minutes.
 </FuturisticCard>
 
@@ -14,9 +14,9 @@ description: "Get started with SJM in minutes"
 
 <CodeTabs
   tabs={{
-    pip: `pip install sjm`,
-    npm: `npm install @sjm/client`,
-    yarn: `yarn add @sjm/client`,
+    pip: `pip install Snapjobs`,
+    npm: `npm install @Snapjobs/client`,
+    yarn: `yarn add @Snapjobs/client`,
   }}
 />
 
@@ -24,7 +24,7 @@ description: "Get started with SJM in minutes"
 
 <CodeTabs
   tabs={{
-    "Python": `from sjm import MatchingEngine, Project
+    "Python": `from Snapjobs import MatchingEngine, Project
 
 # Initialize the engine
 
@@ -51,10 +51,10 @@ for match in matches:
 print(f"Match score: {match['combined_score']}")
 print(f"Freelancer: {match['freelancer'].name}")`,
 
-    "JavaScript": `import { SJMClient } from '@sjm/client';
+    "JavaScript": `import { SnapjobsClient } from '@Snapjobs/client';
 
 // Initialize client
-const client = new SJMClient({ apiKey: 'your_api_key' });
+const client = new SnapjobsClient({ apiKey: 'your_api_key' });
 
 // Find matches
 const matches = await client.match({
@@ -68,7 +68,7 @@ max: 5000
 
 console.log(matches);`,
 
-    "REST": `curl -X POST https://api.sjm.dev/v1/match \\
+    "REST": `curl -X POST https://api.Snapjobs.dev/v1/match \\
 
 -H "Authorization: Bearer YOUR_API_KEY" \\
 -H "Content-Type: application/json" \\
@@ -104,7 +104,7 @@ console.log(matches);`}
   <Link href="/docs/guides/skills-extraction">
     <FuturisticCard>
       <h3>Skills Extraction →</h3>
-      <p>Learn how SJM extracts skills from text</p>
+      <p>Learn how Snapjobs extracts skills from text</p>
     </FuturisticCard>
   </Link>
 

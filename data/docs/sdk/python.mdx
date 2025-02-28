@@ -1,6 +1,6 @@
 ---
 title: "Python SDK"
-description: "Complete guide to using SJM with Python"
+description: "Complete guide to using Snapjobs with Python"
 ---
 
 # Python SDK Reference
@@ -18,20 +18,20 @@ description: "Complete guide to using SJM with Python"
 
 <CodeTabs
   tabs={{
-    pip: "pip install sjm",
-    poetry: "poetry add sjm-ai",
-    conda: "conda install -c sjm sjm-ai",
+    pip: "pip install Snapjobs",
+    poetry: "poetry add Snapjobs-ai",
+    conda: "conda install -c Snapjobs Snapjobs-ai",
   }}
 />
 
 ## Quick Setup
 
 <CodeHighlight
-  code={`from sjm import MatchingEngine
+  code={`from Snapjobs import MatchingEngine
 import os
 
 engine = MatchingEngine(
-api_key=os.getenv('SJM_API_KEY'),
+api_key=os.getenv('Snapjobs_API_KEY'),
 environment='production'
 )`}
 language="python"
@@ -43,7 +43,7 @@ language="python"
 
 <CodeTabs
   tabs={{
-    "Basic": `from sjm import Project
+    "Basic": `from Snapjobs import Project
 
 project = Project(
 description="Need a React Native developer",
@@ -72,7 +72,7 @@ preferences={
 ### Skills Analysis
 
 <CodeHighlight
-  code={`from sjm import SkillsExtractor
+  code={`from Snapjobs import SkillsExtractor
 
 extractor = SkillsExtractor()
 
@@ -91,7 +91,7 @@ language="python"
 ### AI Interviews
 
 <CodeHighlight
-  code={`from sjm import AIInterviewer
+  code={`from Snapjobs import AIInterviewer
 
 interviewer = AIInterviewer()
 
@@ -115,7 +115,7 @@ language="python"
 ## Async Support
 
 <CodeHighlight
-  code={`from sjm import AsyncMatchingEngine
+  code={`from Snapjobs import AsyncMatchingEngine
 import asyncio
 
 async def match_candidates():
@@ -136,8 +136,8 @@ language="python"
 ## Error Handling
 
 <CodeHighlight
-  code={`from sjm.exceptions import (
-    SJMAPIError,
+  code={`from Snapjobs.exceptions import (
+    SnapjobsAPIError,
     RateLimitError,
     ValidationError
 )
@@ -148,7 +148,7 @@ except RateLimitError as e:
 print(f"Rate limit exceeded. Retry after {e.retry_after} seconds")
 except ValidationError as e:
 print(f"Invalid input: {e.details}")
-except SJMAPIError as e:
+except SnapjobsAPIError as e:
 print(f"API error: {e}")`}
 language="python"
 />
@@ -158,7 +158,7 @@ language="python"
 <InteractiveDemo
   title="Complete Integration Example"
   description="Try a full integration with the Python SDK"
-  initialCode={`from sjm import MatchingEngine, Project, SkillsExtractor
+  initialCode={`from Snapjobs import MatchingEngine, Project, SkillsExtractor
 
 # Initialize components
 
