@@ -88,9 +88,7 @@ export default function SystemHealthChecker() {
   useEffect(() => {
     // In a real application, you should use environment variables
     // For testing, you can hardcode a valid API key here
-    const envApiKey =
-      process.env.NEXT_PUBLIC_Snapjobs_API_KEY ||
-      "Snapjobs_fr_07580289890cccf65be9dcdc3573e9e1bdee3dac01d83393000b75069c1c127b_5892a92a";
+    const envApiKey = process.env.NEXT_PUBLIC_SJM_API_KEY;
     setApiKey(envApiKey);
   }, []);
 
