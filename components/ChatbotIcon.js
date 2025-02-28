@@ -43,7 +43,7 @@ const ChatbotIcon = ({ onOpen }) => {
 };
 
 // Main Snapjobs Test Chatbot Component
-const SnapjobsTestChatbot = ({ onClose, isOpen }) => {
+const SJMTestChatbot = ({ onClose, isOpen }) => {
   const [messages, setMessages] = useState([
     {
       id: 1,
@@ -1726,15 +1726,15 @@ Would you like to see freelancers with ${report.name} expertise?`;
   );
 };
 
-const SnapjobsTestWidget = () => {
+const SJMTestWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <ChatbotIcon onOpen={() => setIsOpen(true)} />
-      <SnapjobsTestChatbot isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <SJMTestChatbot isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </>
   );
 };
 
-export { ChatbotIcon, SnapjobsTestChatbot, SnapjobsTestWidget };
+export { ChatbotIcon, SJMTestChatbot, SJMTestWidget };
