@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useSession, signOut } from "next-auth/react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 const MenuIcon = ({ isOpen }) => {
@@ -28,7 +28,10 @@ export default function Navbar() {
   const { data: session } = useSession();
   const [showDropdown, setShowDropdown] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const dropdownRef = useRef(null);
+  const buttonRef = useRef(null);
 
+  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -36,6 +39,29 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Handle click outside dropdown
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Close dropdown if click is outside dropdown AND outside button
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
+      ) {
+        setShowDropdown(false);
+      }
+    };
+
+    // Add event listener
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Cleanup event listener
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownRef, buttonRef]);
 
   const navigation = [
     { name: "Our Footprints", href: "/footprints" },
@@ -100,6 +126,7 @@ export default function Navbar() {
             {session ? (
               <div className="relative">
                 <motion.button
+                  ref={buttonRef}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setShowDropdown(!showDropdown)}
@@ -114,6 +141,7 @@ export default function Navbar() {
                 <AnimatePresence>
                   {showDropdown && (
                     <motion.div
+                      ref={dropdownRef}
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
@@ -133,7 +161,10 @@ export default function Navbar() {
                         </span>
                       </Link>
                       <button
-                        onClick={() => signOut()}
+                        onClick={() => {
+                          setShowDropdown(false);
+                          signOut();
+                        }}
                         className="block w-full text-left px-4 py-2 text-sm text-red-400 hover:bg-white/10 transition-colors"
                       >
                         Sign out
@@ -157,6 +188,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <motion.button
+              ref={buttonRef}
               whileTap={{ scale: 0.95 }}
               onClick={() => setShowDropdown(!showDropdown)}
               className="p-2"
@@ -171,6 +203,7 @@ export default function Navbar() {
       <AnimatePresence>
         {showDropdown && (
           <motion.div
+            ref={dropdownRef}
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
@@ -187,6 +220,7 @@ export default function Navbar() {
                 >
                   <Link href={item.href}>
                     <span
+                      onClick={() => setShowDropdown(false)}
                       className={`block p-2 rounded-lg ${
                         router.pathname === item.href
                           ? "bg-accent text-white"
@@ -217,12 +251,18 @@ export default function Navbar() {
                       </p>
                     </div>
                     <Link href="/dashboard">
-                      <span className="block p-2 text-sm text-gray-200 hover:bg-white/10 rounded-lg">
+                      <span
+                        onClick={() => setShowDropdown(false)}
+                        className="block p-2 text-sm text-gray-200 hover:bg-white/10 rounded-lg"
+                      >
                         Dashboard
                       </span>
                     </Link>
                     <button
-                      onClick={() => signOut()}
+                      onClick={() => {
+                        setShowDropdown(false);
+                        signOut();
+                      }}
                       className="w-full p-2 text-left text-sm text-red-400 hover:bg-white/10 rounded-lg"
                     >
                       Sign out
@@ -230,7 +270,10 @@ export default function Navbar() {
                   </>
                 ) : (
                   <button
-                    onClick={() => router.push("/auth/signin")}
+                    onClick={() => {
+                      setShowDropdown(false);
+                      router.push("/auth/signin");
+                    }}
                     className="w-full p-2 text-sm text-center bg-accent hover:bg-accent-hover text-white rounded-lg"
                   >
                     Sign In

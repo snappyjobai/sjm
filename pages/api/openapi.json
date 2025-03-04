@@ -1,13 +1,13 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "SJM API Documentation",
+    "title": "Snap Jobs API Documentation",
     "version": "1.0.0",
     "description": "Enterprise-grade AI-powered talent matching system"
   },
   "servers": [
     {
-      "url": "https://api.sjm.ai/v1",
+      "url": "https://snapjobsai.com/api/v1",
       "description": "Production API"
     }
   ],

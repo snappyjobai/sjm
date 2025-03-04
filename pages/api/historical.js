@@ -4,7 +4,7 @@ const pool = createPool({
   host: process.env.DB_HOST || "localhost",
   user: process.env.DB_USER || "root",
   password: process.env.DB_PASSWORD || "",
-  database: process.env.DB_NAME || "sjm_db",
+  database: process.env.DB_NAME || "snapjobs_db",
 });
 
 export default async function handler(req, res) {

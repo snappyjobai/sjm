@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   const { endpoint, method, params } = req.body;
 
   // Get API key from environment
-  const apiKey = process.env.NEXT_PUBLIC_SJM_API_KEY;
+  const apiKey = process.env.NEXT_PUBLIC_SNAP_JOBS_API_KEY;
 
   // Base URL for SJM API
   const baseUrl =

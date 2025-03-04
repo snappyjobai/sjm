@@ -82,7 +82,7 @@ const APISandbox = () => {
   // Get API key from environment variable if available
   useEffect(() => {
     // Next.js environment variables that start with NEXT_PUBLIC_ are available on the client side
-    const envApiKey = process.env.NEXT_PUBLIC_SJM_API_KEY || "";
+    const envApiKey = "";
     setApiKey(envApiKey);
   }, []);
 

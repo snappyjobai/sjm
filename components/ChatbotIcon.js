@@ -43,7 +43,7 @@ const ChatbotIcon = ({ onOpen }) => {
 };
 
 // Main Snapjobs Test Chatbot Component
-const SJMTestChatbot = ({ onClose, isOpen }) => {
+const SnapjobsTestChatbot = ({ onClose, isOpen }) => {
   const [messages, setMessages] = useState([
     {
       id: 1,
@@ -77,7 +77,7 @@ const SJMTestChatbot = ({ onClose, isOpen }) => {
 
   // Store API key
   useEffect(() => {
-    const envApiKey = process.env.NEXT_PUBLIC_Snapjobs_API_KEY;
+    const envApiKey = process.env.NEXT_PUBLIC_SNAPJOBS_API_KEY;
     setApiKey(envApiKey);
   }, []);
 
@@ -671,7 +671,7 @@ ${freelancer.availability ? "✅ Available Now" : "⏱️ Available in 2 weeks"}
       };
 
       const response = await axios.post(
-        "https://snapjobsai.com/api/v1/test/match",
+        "https://snapjobsai.com/api/v1/match",
         payload,
         {
           headers: {
@@ -831,7 +831,7 @@ ${freelancer.availability ? "✅ Available Now" : "⏱️ Available in 2 weeks"}
       ]);
 
       const response = await axios.post(
-        "https://snapjobsai.com/api/v1/test/verify-skill",
+        "https://snapjobsai.com/api/v1/verify-skill",
         {
           keyword: skill,
         },
@@ -1072,14 +1072,11 @@ Would you like to see freelancers with ${report.name} expertise?`;
         },
       ]);
 
-      const response = await axios.get(
-        "https://snapjobsai.com/api/v1/test/health",
-        {
-          headers: {
-            "X-API-Key": apiKey,
-          },
-        }
-      );
+      const response = await axios.get("https://snapjobsai.com/api/v1/health", {
+        headers: {
+          "X-API-Key": apiKey,
+        },
+      });
 
       const data = response.data;
 
@@ -1211,7 +1208,7 @@ Would you like to see freelancers with ${report.name} expertise?`;
 
       // Make API call
       const response = await axios.post(
-        "https://snapjobsai.com/api/v1/test/interview",
+        "https://snapjobsai.com/api/v1/interview",
         payload,
         {
           headers: {
@@ -1726,15 +1723,15 @@ Would you like to see freelancers with ${report.name} expertise?`;
   );
 };
 
-const SJMTestWidget = () => {
+const SnapjobsTestWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <ChatbotIcon onOpen={() => setIsOpen(true)} />
-      <SJMTestChatbot isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <SnapjobsTestChatbot isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </>
   );
 };
 
-export { ChatbotIcon, SJMTestChatbot, SJMTestWidget };
+export { ChatbotIcon, SnapjobsTestChatbot, SnapjobsTestWidget };
